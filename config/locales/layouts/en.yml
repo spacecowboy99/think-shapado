@@ -1,27 +1,28 @@
 en:
   layouts:
     application:
-      title: "questions & answers"
-      questions: questions
-      questions_in: questions in
+      title: "What do you think..?"
+      questions: Thoughts
+      questions_in: Thoughts about
       questions_tagged: tagged with
-      ask_question: ask question
-      tags: tags
-      users: users
-      badges: badges
-      unanswered: unanswered
-      logout: logout
-      logged: logged in as {{login}}
-      search: search
-      forgot: forgot?
-      log_in: login
+      ask_question: Share a thought...
+      tags: Tags
+      users: Thinkers
+      badges: Prizes
+      groups: Groups
+      unanswered: Drifters
+      logout: Logout
+      logged: Logged in as {{login}}
+      search: Search
+      forgot: Forgot?
+      log_in: Login
       signup: signup
-      settings: settings
-      languages: languages
-      moderate: moderate
+      settings: My settings
+      languages: Languages
+      moderate: Moderate
       manage_ads: manage ads
-      home: home
-      subscribe: subscribe
+      home: Home
+      subscribe: Join the Thinkers
       openid:
         explaination: "if you'd like to register or just log in, please select your openid provider:"
     manage:
@@ -36,7 +37,7 @@ en:
       theme: theme
       domain: domain
       pages: pages
-      constrains: constrains
+      constrains: constraints
       rewards: rewards
       general: general
       announcements: announcements

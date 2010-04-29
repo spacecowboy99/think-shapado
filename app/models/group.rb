@@ -8,7 +8,7 @@ class Group
                  "bug", "bugs", "dev", "ftp", "forum", "community", "mail", "email",
                  "webmail", "pop", "pop3", "imap", "smtp", "stage", "stats", "status",
                  "support", "survey", "download", "downloads", "faqs", "wiki",
-                 "assets1", "assets2", "assets3", "assets4"]
+                 "assets1", "assets2", "assets3", "assets4", "fuck", "cunt"]
 
   key :_id, String
   key :name, String, :required => true
@@ -21,7 +21,7 @@ class Group
   key :state, String, :default => "pending" #pending, active, closed
   key :isolate, Boolean, :default => false
   key :private, Boolean, :default => false
-  key :theme, String, :default => "shapado"
+  key :theme, String, :default => "mental-block"
   key :owner_id, String
   key :analytics_id, String
   key :analytics_vendor, String

@@ -56,6 +56,8 @@
             = link_to h(tag), url_for(:controller => "questions", :action => "index", :tags => tag), :rel => "tag", :title => t("questions.tags.tooltip", :tag => tag)
       .owner-data
         = link_to h(owner.login), user_path(owner)
+        %span.gravatar        
+          = gravatar(owner.email.to_s, :size => 18)
         %span.reputation
           ==(#{owner.reputation_on(question.group_id)})
         %strong.time_ago

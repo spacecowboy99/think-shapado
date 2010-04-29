@@ -1,106 +1,94 @@
 en:
   questions:
     index:
-      title: all questions
+      title: All thoughts
       hot:     hot
       active:  active
       votes:   votes
       newest:  newest
       oldest:  oldest
-      ask_question: ask question
-      empty: "no one has asked any questions yet, be the first!"
-      help_to_answer: help us answer
-      unanswered_questions: unanswered questions
-      hot_tooltip: questions with the most activity over the last 5 days
-      active_tooltip: questions that have been updated recently
-      votes_tooltip:  questions with the most votes
-      newest_tooltip: the most recently asked questions
+      ask_question: Think something
+      empty: "Nobody has thought anything yet, be the first!"
+      help_to_answer: Help capture
+      unanswered_questions: drifting thoughts...
+      hot_tooltip: Thoughts with the most activity over the last 5 days
+      active_tooltip: Thoughts that have been updated recently
+      votes_tooltip:  Thoughts with the most votes
+      newest_tooltip: The most recent thoughts
     show:
       answers: answers
       another_answers: other answers
       solution: solution
-      share: "share this question on"
-      related_questions: related questions
+      share: "Share this thought on"
+      related_questions: Related thoughts
       flags: reported as
-      flag: flag
-      viewed: viewed
-      to_answer_question: to answer this question
-      watch_tooltip: "watch this question"
-      accepted_tooltip: "one of the answers was accepted as the correct answer"
-      unwatch_tooltip: "stop watching this question"
-      favorite_tooltip: "add this question to your favorites"
-      unfavorite_tooltip: "remove this question from your favorites"
-      asked_on: "asked on"
-      last_activity: last activity
-      retag: retag
-      request_closing: request closing
-      request_closing_details: request to close this question
-      close: close
-      ban: ban
-      retract_request: you have already made a request, would you line to retract it?
-      close_reason: "the question has been closed for the following reason:"
+      flag: Flag
+      close: Close
+      ban: Ban user
+      retag: Edit tags
+      viewed: Viewed
+      to_answer_question: to comment on this though
+      watch_tooltip: "watch this thought"
+      answered_tooltip: "one of the answers was accepted as the correct answer"
+      unwatch_tooltip: "stop watching this though"
+      favorite_tooltip: "add this thought to your favorites"
+      unfavorite_tooltip: "remove this thought from your favorites"
+      request_closing_details: Close
+      asked_on: "Thought on"
+      last_activity: Last activity
       answers_title:
         one: "{{count}} answer"
         other: "{{count}} answers"
     answer:
-      pick_answer: pick as solution
-      unset_answer: unset as solution?
-      flag: flag
-      add_comment: add comment...
+      pick_answer: Set as insightful
+      unset_answer: Unset as insightful
+      flag: Flag
+      add_comment: Add comment...
+     
     question:
-      accepted_tooltip: This question has an answer that has been accepted
+      answered_tooltip: This question has been answered
     form:
-      body_tip: what's your question? be descriptive.
+      body_tip: What do you think...?
       language_tip: select the language's question.
-      tags_tip:  use tags to add more information about your question.
-      adult_content: this question contains adult material.
+      tags_tip:  use tags to add more information about your thought.
+      adult_content: this thought contains adult material.
     flag:
-      title:   flag question
+      title:   flag thought
     edit:
-      title: editing question
+      title: editing thought
     unanswered:
-      title: unanswered questions
-      tags: unanswered tags
-      empty: "this group doesn't have any unanswered questions."
-      my_tags: my tags
+      title: Drifting thoughts
+      tags: Drifting topics
+      empty: "this group doesn't have any drifting thoughts."
+      my_tags: my topics
       expert: experts
     tags:
-      title: tags
-      tooltip: show questions tagged {{tag}}
-      filter: search for tags
+      title: Topics
+      tooltip: show thoughts tagged {{tag}}
     new:
-      title: ask question
-      how_to_ask: how to ask
+      title: Share a thought...
+      how_to_ask: How to think...
     create:
-      flash_notice: "question was successfully created."
+      flash_notice: "Thought was successfully created."
     update:
-      flash_notice: "question was successfully updated."
+      flash_notice: "Thought was successfully updated."
     solve:
-      flash_notice: "question was solved."
+      flash_notice: "Thought was accepted."
     unsolve:
-      flash_notice: "question now is not solved."
+      flash_notice: "Thought now is not solved."
     watch:
       success:      "you will now receive notifications by mail for every new answer to this question"
     unwatch:
       success:      "you will not receive notifications by mail for every new answer to this question anymore"
-    revert:
-      title: "revert question"
     move:
       title:        "move question: {{title}}"
       group_label:  "move to the group with slug:"
       submit:       "move!"
     move_to:
       success:      "question moved to {{group}}"
-      group_dont_exists: "the group {{group}} doesn't exist"
+      group_dont_exists: "the group {{group}} don't exists"
     shared:
       flag: flag
-    retag_form:
-      title:  "Update tags"
-      submit: "update tags!"
-      cancel: "cancel"
-    retag_to:
-      success: "The tags have been updated successfully."
-      failure: "Sorry, the tags could not be updated."
     model:
       messages:
         too_short: "seems too short. Please use more words than {{count}} to be more specific."
@@ -109,17 +97,16 @@ en:
 
   activerecord:
     models:
-      questions: questions
-      question: question
+      questions: Thoughts
+      question: Thought
     attributes:
       question:
         title: title
-        body: body
+        body: I think...
         tags: tags
-        asked_by: asked by
-        answers: answers
-        views: views
-        votes: votes
+        asked_by: Thought by
+        answers: Answers
+        views: Views
+        votes: Votes
         language: language
-        created_at: asked
-        closed: closed
+        created_at: thought
