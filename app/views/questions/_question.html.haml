@@ -34,20 +34,6 @@
           =t(:views, :scope => "activerecord.attributes.question")
     / Question Summary
     .summary
-      .left.vote-icon
-        -unless question.closed
-          -if logged_in? && (vote = current_user.vote_on(question))
-            -if vote.value < 0
-              = image_tag "edit-delete.png"
-            -else
-              = image_tag "dialog-ok-apply.png"
-          -elsif current_user != question.user
-            -form_tag votes_path, :class => "vote-up-form" do
-              .fields
-                = hidden_field_tag "voteable_type", question.class.name, :id => "voteable_type_#{question.id}"
-                = hidden_field_tag "voteable_id", question.id, :id =>  "voteable_id_#{question.id}"
-                = hidden_field_tag "source", questions_path, :id =>  "source_#{question.id}"
-                = image_submit_tag("dialog-ok.png", :name=>"vote_up", :value=>"1", :title => t("votes.control.to_vote_up"), :class => "quick-vote-button")
 
       %h3= link_to title, question_path(question), :title => truncate(strip_tags(question.body), :length => 200)
       .tag-list

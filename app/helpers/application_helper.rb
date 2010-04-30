@@ -75,8 +75,8 @@ module ApplicationHelper
 
     return '' if tags.size <= 2
 
-    max_size = options.delete(:max_size) || 35
-    min_size = options.delete(:min_size) || 12
+    max_size = options.delete(:max_size) || 24
+    min_size = options.delete(:min_size) || 10
 
     tag_class = options.delete(:tag_class) || "tag"
 
