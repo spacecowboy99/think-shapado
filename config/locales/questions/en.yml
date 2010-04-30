@@ -2,11 +2,11 @@ en:
   questions:
     index:
       title: All thoughts
-      hot:     hot
-      active:  active
-      votes:   votes
-      newest:  newest
-      oldest:  oldest
+      hot: Hot
+      active: Active
+      votes: Votes
+      newest: Newest
+      oldest: Oldest
       ask_question: Think something
       empty: "Nobody has thought anything yet, be the first!"
       help_to_answer: Help capture
@@ -52,6 +52,11 @@ en:
       language_tip: select the language's question.
       tags_tip:  use tags to add more information about your thought.
       adult_content: this thought contains adult material.
+    retag_form:
+      submit: Update Tags
+      cancel: Cancel
+    retag_to:
+      success: The tags have been succesfully updated, thanks...
     flag:
       title:   flag thought
     edit:
@@ -77,9 +82,9 @@ en:
     unsolve:
       flash_notice: "Thought now is not solved."
     watch:
-      success:      "you will now receive notifications by mail for every new answer to this question"
+      success:      "you will now receive notifications by mail for every new insight on this thought"
     unwatch:
-      success:      "you will not receive notifications by mail for every new answer to this question anymore"
+      success:      "you will not receive notifications by mail for every new insight on this anymore"
     move:
       title:        "move question: {{title}}"
       group_label:  "move to the group with slug:"
@@ -92,7 +97,7 @@ en:
     model:
       messages:
         too_short: "seems too short. Please use more words than {{count}} to be more specific."
-        too_many_tags: Sorry, you can only enter 6 tags maximum.
+        too_many_tags: Sorry, you can only enter up to 6 tags, please choose wisely.
         empty_tags: Sorry, you need to use at least one tag.
 
   activerecord:
@@ -101,11 +106,11 @@ en:
       question: Thought
     attributes:
       question:
-        title: title
+        title: Title
         body: I think...
-        tags: tags
+        tags: Tags
         asked_by: Thought by
-        answers: Answers
+        answers: Insights
         views: Views
         votes: Votes
         language: language
