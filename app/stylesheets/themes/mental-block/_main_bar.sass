@@ -1,0 +1,75 @@
+//Dark Blue: #2C5883 Dark Blue Inverted: #d3a77c
+//Main Blue: #4c82c4 Main Blue Inverted: #b37d3b
+//High Blue: #27B3EA High Blue Inverted: #d84c15
+
+#main-bar
+  width: 100%
+  float: left
+
+
+  #logo
+    height: 48px
+    width: 128px
+    float: left
+    padding: 0
+    margin: 0
+    
+    .group_logo
+      line-height: 0
+      bottom: 0px
+
+
+#main-bar ul
+  list-style-type: none
+  line-height: 24px
+  height: 48px
+
+#main-bar ul li
+  margin-top: 20px
+  line-height: 24px
+  background: #2C5883
+  margin-right: 5px
+  color: #F8F0E6
+  float: left
+  +rounded(8px, 8px, 0px, 0px)
+
+  &:hover
+    background: #27B3EA
+    color: #fff
+
+  &.active
+    border-top: 1px solid #fff
+    background-color: #FF9900 !important
+    color: #333
+    +rounded(8px, 8px, 0px, 0px)
+    a
+      &:link, &:visited, &:hover, &:active
+        color: #364b69
+        +rounded(8px, 8px, 0px, 0px)
+
+  a
+    display: block
+    //font-size: 14px
+    font-weight: bold
+    padding: 2px 8px
+
+    &:link, &:visited, &:hover, &:active
+      text-decoration: none
+      color: #FFF
+      +rounded(8px, 8px, 0px, 0px)
+
+  &.ask_question
+    margin: 4px 0px
+    padding: 4px
+    //border: 2px solid #eee
+    background: #de801c
+    width: 216px
+    float: right
+    //+fancy-button-structure
+    //+fancy-button-colors-matte(#27B3EA)
+    //+fancy-button-size(15px, 6px, 0px)
+    +rounded(8px, 8px, 8px, 8px)
+    &:hover
+      background: #ffcc33
+    a
+      font-size: 20px
