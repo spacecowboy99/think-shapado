@@ -1,12 +1,12 @@
 en:
   answers:
     form:
-      comment_label: comment on this answer
-      answer_label: answer the question
-      comment_submit: comment
-      submit: answer
+      comment_label: comment on this insight
+      answer_label: Share an insight
+      comment_submit: Comment
+      submit: Share insight!
     edit:
-      title: editing answer
+      title: editing insight
     create:
       flash_notice: "thanks!"
       flash_error:  "something went wrong adding your answer.
@@ -15,16 +15,16 @@ en:
   \n - you need to wait 20 senconds before posting another answer.
   \n - you can only post one answer by question."
     update:
-      flash_notice: "answer was successfully updated."
+      flash_notice: "Your insight was successfully updated."
     revert:
-      title: "revert answer"
+      title: "revert insight"
 
   activerecord:
     models:
-      answers: answers
-      answer: answer
+      answers: insights
+      answer: insight
     attributes:
       answer:
         link: link
-        created_at: answered
+        created_at: shared
         body: body

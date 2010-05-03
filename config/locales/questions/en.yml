@@ -16,9 +16,9 @@ en:
       votes_tooltip:  Thoughts with the most votes
       newest_tooltip: The most recent thoughts
     show:
-      answers: answers
-      another_answers: other answers
-      solution: solution
+      answers: Insights
+      another_answers: more insights
+      solution: Meaningful
       share: "Share this thought on"
       related_questions: Related thoughts
       flags: reported as
@@ -27,26 +27,26 @@ en:
       ban: Ban user
       retag: Edit tags
       viewed: Viewed
-      to_answer_question: to comment on this though
+      to_answer_question: to comment on this thought
       watch_tooltip: "watch this thought"
-      answered_tooltip: "one of the answers was accepted as the correct answer"
-      unwatch_tooltip: "stop watching this though"
+      answered_tooltip: "one of the insights was accepted as meaningful"
+      unwatch_tooltip: "stop watching this thought"
       favorite_tooltip: "add this thought to your favorites"
       unfavorite_tooltip: "remove this thought from your favorites"
       request_closing_details: Close
       asked_on: "Thought on"
       last_activity: Last activity
       answers_title:
-        one: "{{count}} answer"
-        other: "{{count}} answers"
+        one: "{{count}} insight"
+        other: "{{count}} insights"
     answer:
-      pick_answer: Set as insightful
-      unset_answer: Unset as insightful
+      pick_answer: Set as meaningful
+      unset_answer: Unset as meaningful
       flag: Flag
       add_comment: Add comment...
      
     question:
-      answered_tooltip: This question has been answered
+      answered_tooltip: This thought has a meaningful insight
     form:
       body_tip: What do you think...?
       language_tip: select the language's question.
@@ -86,11 +86,11 @@ en:
     unwatch:
       success:      "you will not receive notifications by mail for every new insight on this anymore"
     move:
-      title:        "move question: {{title}}"
+      title:        "move thought: {{title}}"
       group_label:  "move to the group with slug:"
       submit:       "move!"
     move_to:
-      success:      "question moved to {{group}}"
+      success:      "thought moved to {{group}}"
       group_dont_exists: "the group {{group}} don't exists"
     shared:
       flag: flag
@@ -113,5 +113,5 @@ en:
         answers: Insights
         views: Views
         votes: Votes
-        language: language
-        created_at: thought
+        language: Language
+        created_at: Thought
