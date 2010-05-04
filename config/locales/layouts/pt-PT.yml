@@ -1,0 +1,42 @@
+pt-PT:
+  layouts:
+    application:
+      title: "perguntas & respostas"
+      questions: perguntas
+      questions_in: perguntas em
+      questions_tagged: tagged with
+      ask_question: fazer pergunta
+      tags: tags
+      users: utilizadores
+      badges: badges
+      unanswered: sem resposta
+      logout: desligar sessão
+      logged: ligado como {{login}}
+      search: search
+      forgot: esqueceu-se?
+      log_in: ligar
+      signup: registar-se
+      settings: preferências
+      languages: idiomas
+      moderate: moderar
+      manage_ads: gerir as propaganda
+      home: início
+      subscribe: subscribe
+      openid:
+        explaination: "se quiser registar-se ou apenas ligar-se, por favor seleccione o seu fornecedor de openid:"
+    manage:
+      dashboard: dashboard
+      properties: properties
+      widgets: widgets
+      actions: actions
+      stats: stats
+      members: members
+      reputation: reputation
+      content: content
+      theme: theme
+      domain: domain
+      pages: pages
+      constrains: constrains
+      rewards: rewards
+      general: general
+      announcements: announcements

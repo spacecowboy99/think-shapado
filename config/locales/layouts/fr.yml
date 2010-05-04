@@ -1,0 +1,42 @@
+fr:
+  layouts:
+    application:
+      title: "questions & réponses"
+      questions: questions
+      questions_in: questions en
+      questions_tagged: taguées
+      ask_question: posez une question
+      tags: tags
+      users: utilisateurs
+      badges: insignes
+      unanswered: sans réponses
+      logout: se déconnecter
+      logged: connecté {{login}}
+      search: chercher
+      forgot: oublié?
+      log_in: se connecter
+      signup: créer un compte
+      settings: configuration
+      languages: langues
+      moderate: modérer
+      manage_ads: administrer les publicités
+      home: page principale
+      subscribe: s'inscrire
+      openid:
+        explaination: "si vous souhaitez ouvrir un compte ou juste vous connectez, sélectionnez un fournisseur openid:"
+    manage:
+      dashboard: dashboard
+      properties: propriétés
+      widgets: widgets
+      actions: actions
+      stats: États
+      members: membres
+      reputation: réputation
+      content: contenu
+      theme: thème
+      domain: domaine
+      pages: pages
+      constrains: constraintes
+      rewards: récompenses
+      general: général
+      announcements: annonces

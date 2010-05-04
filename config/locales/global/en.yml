@@ -1,0 +1,58 @@
+en:
+  scaffold:
+    sure: Are you sure you want to delete this {{model}} ?
+    show: Show
+    edit: Edit
+    destroy: Delete
+    back: Back
+    update: Update
+    cancel: Cancel
+    close: Close
+    create: Create
+    new: Add new {{model}}
+    more: "more ..."
+    add: Add
+    send: Send
+    save: Save
+  time:
+    today: Today
+    ago: "{{time}} ago"
+  messages:
+    success: "{{model}} was successfully {{action}}."
+  models:
+    question:   the thought
+  actions:
+    created:     created
+    deleted:     deleted
+    updated:     updated
+    closed:      closed
+  global:
+    from: "from {{site}}"
+    permission_denied: permission denied
+    please_login: please log in
+    group_not_found: "the page {{url}} doesn't exist"
+    preview: preview
+    or: or
+    by: by
+    current: current
+    previous: previous
+  feeds:
+    question: subscribe to this thought
+    questions: subscribe to all thoughts
+    tag: subscribe to topic
+    user: subscribe to this user
+    feed: Feed
+  languages:
+    en:      english
+    es:      spanish
+    es-AR:   latin american spanish
+    fr:      french
+    pt:      portuguese
+    pt-PT:   portuguese
+    any:     any
+    user:    my preferred languages
+  number:
+    x_time:
+      zero: "never"
+      one: "{{count}} time"
+      other: "{{count}} times"

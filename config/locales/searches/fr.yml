@@ -1,0 +1,10 @@
+fr:
+  searches:
+    index:
+      empty: "aucune question ne correspond aux termes de recherche spécifiés."
+      tags: parmi ces tags
+      search_text: questions contenant
+    form:
+      clear: effacer
+      search_box_title: "Vérifiez que votre question n'ait pas déjà été posé"
+      tags_tip: utiliser [tag] pour décrire vos tags.

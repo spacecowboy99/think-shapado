@@ -1,0 +1,53 @@
+fr:
+  welcome:
+    facts:
+      prices:
+        cols:
+          onsite: sur site
+        stackexchange:
+          small: $129/mois
+          medium: $999/mois
+          large: $1299/mois
+          onsite: $2500/mois
+        shapado:
+          small: à peu près $50-$100/mois sur ovh
+          medium: <=== idem
+          large: genre $500
+          onsite: bah que dalle sur votre propre serveur
+      features:
+        cols:
+          adaptable: adaptable
+          multitopic: multi-topic
+          multilanguage: multilingue
+          foss: libre/open source
+          joel: vais-je rendre joel plus riche?
+        stackexchange:
+          adaptable: non
+          multitopic: non
+          multilanguage: non
+          foss: non
+          joel: oui!
+        shapado:
+          adaptable: oui!
+          multitopic: oui!
+          multilanguage: oui!
+          foss: oui!
+          joel: "non :/"
+    feedback:
+      title: envoyer votre feedback
+      feedback_title: titre
+      feedback_description: description
+      email_description: s'il vous plait, donnez-nous votre email afin que nous puissions répondre à votre message.
+      captcha_error: s'il vous plait, veuillez résoudre cette simple opération mathématique
+    index:
+      hot:     chaudes
+      active:  actives
+      recent_questions: questions récentes
+      quick_question: posez une question, nous trouverons quelqu'un pour y répondre
+      create_own_site: "Créez votre propre site de QR en 8 secondes gratuitement"
+
+    confirm_age:
+      warning: "ATTENTION: Cette page peux contenir du matériel explicite pour adultes."
+      notice: "Vous ne pouvez entrer sur ce site internet seulement si vous avez au moins 18 ans, ou au moins l'age de la majorité de la juridiction dans laquelle vous résidez ou de laquelle vous accedez cette page internet"
+      under_18: "J'ai moins de 18 ans"
+      over_18: "J'ai plus de 18 ans"

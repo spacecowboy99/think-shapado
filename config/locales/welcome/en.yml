@@ -1,0 +1,53 @@
+en:
+  welcome:
+    facts:
+      prices:
+        cols:
+          onsite: on site
+        stackexchange:
+          small: $129/month
+          medium: $999/month
+          large: $1299/month
+          onsite: $2500/month
+        shapado:
+          small: prolly like $50 to $100/month on most hosting providers
+          medium: <=== ditto
+          large: prolly like $500
+          onsite: prolly $0 on your own server duh
+      features:
+        cols:
+          adaptable: adaptable
+          multitopic: multi-topic
+          multilanguage: multi-language
+          foss: free/open source
+          joel: will i make joel richer?
+        stackexchange:
+          adaptable: no
+          multitopic: no
+          multilanguage: no
+          foss: no
+          joel: yes!
+        shapado:
+          adaptable: yes!
+          multitopic: yes!
+          multilanguage: yes!
+          foss: yes!
+          joel: "no :/"
+    feedback:
+      title: send your feedback
+      feedback_title: title
+      feedback_description: description
+      email_description: please, provie your email so we can answer your message
+      captcha_error: please, solve a simple math operation
+    index:
+      hot:     Hot
+      active:  Active
+      recent_questions: Recent thoughts...
+      quick_question: ask a question, we will find someone to answer
+      create_own_site: "Create a group for free"
+
+    confirm_age:
+      warning: "WARNING: This page may contain explicit adult material."
+      notice: You may only enter this page if you are at least 18 years of age, or at least the age of majority in the jurisdiction where you reside or from which you access this page.
+      under_18: "I am under 18"
+      over_18: "I am over 18"

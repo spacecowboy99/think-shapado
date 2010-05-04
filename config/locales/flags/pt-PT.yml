@@ -1,0 +1,18 @@
+pt-PT:
+  flags:
+    form:
+      spam: spam
+      offensive: ofensivo, abusivo ou insultuoso
+      attention: requer atenção do moderador
+      label: por favor reporte com cuidado
+    create:
+      flash_notice: obrigado por ter reportado
+      flash_error: não pode reportar isto
+
+  activerecord:
+    models:
+      flags: reportes
+      flag: reporte
+    attributes:
+      flag:
+        type: motivo

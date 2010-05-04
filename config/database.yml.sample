@@ -1,0 +1,10 @@
+development:
+  database: shapado-development
+  host: localhost
+  port: 27017
+
+test:
+  database: shapado-test
+
+production:
+  database: shapado-production

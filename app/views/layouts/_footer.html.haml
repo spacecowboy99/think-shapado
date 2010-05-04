@@ -1,0 +1,10 @@
+
+-if !current_group.footer.blank?
+  =current_group.footer
+-else
+
+
+-unless current_group.isolate || current_group.private
+  #default_footer.left
+    == Powered by #{link_to 'Shapado', 'http://gitorious.org/shapado'} #{AppConfig.version} under the #{link_to 'GNU Affero General Public License','http://www.fsf.org/licensing/licenses/agpl-3.0.html'}
+

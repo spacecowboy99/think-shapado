@@ -1,0 +1,11 @@
+en:
+  admin:
+    moderate:
+      index:
+        title: moderate
+        ban: ban
+        content: content
+        item_title: title
+        all: all
+        flagged: flagged questions
+        banned: banned questions

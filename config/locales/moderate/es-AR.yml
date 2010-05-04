@@ -1,0 +1,11 @@
+es-AR:
+  admin:
+    moderate:
+      index:
+        title: moderar
+        ban: ban
+        content: contenido
+        item_title: titulo
+        all: todas
+        flagged: preguntas reportadas
+        banned: preguntas baneadas

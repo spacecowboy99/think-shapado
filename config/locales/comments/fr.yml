@@ -1,0 +1,16 @@
+fr:
+  comments:
+    edit:
+      title: Éditer le commentaire
+    create:
+      flash_notice: merci pour votre commentaire
+    update:
+      flash_notice: "le commentaire a été actualisé avec succès."
+    shared:
+      add_comment: "ajouter un commentaire..."
+      comment_submit: "commenter"
+      said: a dit
+      reply: répondre
+  models:
+    comments: commentaire
+    comment: comment

@@ -1,0 +1,18 @@
+en:
+  votes:
+    create:
+      flash_notice: "thanks for your vote!"
+      flash_error:  "you cannot vote this"
+      unauthenticated: "anonymous users can't vote"
+    destroy:
+      flash_notice: "your vote has been revoked successfully."
+    control:
+      to_vote_up: "click to vote up"
+      to_vote_down: "click to vote down"
+      have_voted_up: "click to undo your up vote"
+      have_voted_down: "click to undo your down vote"
+
+  activerecord:
+    models:
+      votes: votes
+      vote: vote

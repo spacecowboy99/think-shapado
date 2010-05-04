@@ -1,0 +1,12 @@
+pt-PT:
+  activerecord:
+    attributes:
+      member:
+        role: role
+  members:
+    index:
+      title: "members of {{name}}'s group"
+      title_isolate: "members of {{name}}"
+      manage_members_title: manage members
+    form:
+      login_tip: "search as you type"

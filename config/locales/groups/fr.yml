@@ -1,0 +1,52 @@
+fr:
+  groups:
+    index:
+      title: groups
+      actives: actifs
+      pendings: en attente
+      about: À propos
+      close: fermer
+      accept_group: accepter ce groupe
+      close_group: fermer ce groupe
+      request_group: demander un nouveau groupe
+      allow_ads: permettre publicité
+      disallow_ads: interdir publicité
+      accept_group_with_custom_ads: accepter ce groupe et autoriser publicité personnalisée
+    show:
+      title: "à propos de {{name}}"
+      visit_group: visiter ce groupe
+      group_awaiting_acceptance: "ce groupe est dans l'attente de l'acceptation d'un modérateur."
+      group_closed: ce groupe a été fermé.
+      accept_group: accepter ce groupe
+      close_group: fermer ce groupe
+    new:
+      title: créez votre groupe
+    create:
+      flash_notice: "Votre groupe a été créé avec succès, vous pouvez maintenant commencer à le configurer."
+    form:
+      description_legend: vous avez 400 caractères pour décrire le groupe.
+      legend_legend: "ceci sera utilisé dans l'entête, vous disposez de 40 caractères"
+      default_tags_legend: "séparez les tags avec des virgules. seuls 10 tags par défaut sont autorisés."
+      logo_legend: "vous pouvez télécharger le logo du groupe. la taille maximum est de 2mb."
+      any_language: "n'importe qu'elle"
+      access: Configuration de l'accès
+  activerecord:
+    models:
+      groups: groupes
+      group: groupe
+      default_tags_message: vous ne pouvez pas utiliser plus de 10 tags par défaut.
+    attributes:
+      group:
+        name: name
+        subdomain: url
+        domain: domaine
+        legend: légende
+        description: description
+        state: état
+        owner: "ce groupe a été crée par {{login}}"
+        group_created_by: crée par
+        language: langue
+        default_tags: "tags par défaut"
+        logo: logo
+        forum: permettre plus d'une réponse par utilisateur
+        wysiwyg_editor: "Activer l'éditeur de texte convivial (présente à l'écran tel qu'à l'écrit)"

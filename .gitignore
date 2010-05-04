@@ -1,0 +1,10 @@
+*~
+coverage
+*.log
+*.sqlite3
+public/stylesheets/compiled/
+config/shapado.yml
+data/*.dat
+config/database.yml
+base_packaged.*
+backup/*

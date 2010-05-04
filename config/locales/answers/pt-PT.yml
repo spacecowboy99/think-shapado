@@ -1,0 +1,30 @@
+"pt-PT":
+  answers:
+    form:
+      comment_label: comenta sobre esta resposta
+      answer_label: responde à pergunta
+      comment_submit: comentar
+      submit: submeter
+    edit:
+      title: editar resposta
+    create:
+      flash_notice: "obrigado!"
+      flash_error:  "algo correu mal ao adicionar a sua resposta.
+  \n  lembre-se que:
+  \n - respostas vazias e repetidas não são permitidas
+  \n - tem que esperar 20 segundos para colocar uma nova resposta.
+  \n - só pode colocar uma resposta por pergunta."
+    update:
+      flash_notice: "resposta foi actualizada com sucesso."
+    revert:
+      title: "revert answer"
+
+  activerecord:
+    models:
+      answers: respostas
+      answer: resposta
+    attributes:
+      answer:
+        link: ligação
+        created_at: answered
+        body: conteúdo

@@ -1,0 +1,20 @@
+en:
+  widgets:
+    index:
+      title: manage sidebar widgets
+      description: use the arrows to move your widgets
+    badges:
+      title: Recent prizes
+      description: "this widget display recent prizes earned by users"
+    groups:
+      title: Recent groups
+      description: "this widget displays the latest groups"
+    top_groups:
+      title: Top 5 groups
+      description: "this widget displays the top five groups"
+    top_users:
+      title: Top 5 users
+      description: "this widget displays top five users"
+    users:
+      title: Recent users
+      description: "this widget display new registered members"

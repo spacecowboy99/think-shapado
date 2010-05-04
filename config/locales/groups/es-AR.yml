@@ -1,0 +1,56 @@
+"es-AR":
+  groups:
+    index:
+      title: grupos
+      actives: activos
+      pendings: pendientes
+      about: acerca de
+      close: cerrar
+      accept_group: aceptar este grupo
+      close_group: cerrar este grupo
+      request_group: pedir un nuevo grupo
+      allow_ads: permitir propaganda
+      disallow_ads: prohibir propaganda
+      accept_group_with_custom_ads: aceptar este grupo y permitir propaganda personalizada
+    show:
+      title: "sobre {{name}}"
+      visit_group: visitar este grupo
+      group_awaiting_acceptance: "este grupo esta pendiente de la aceptación de un moderador."
+      group_closed: este grupo ha sido cerrado.
+      accept_group: aceptar este grupo
+      close_group: cerrar este grupo
+    new:
+      title: crear su grupo
+    create:
+      flash_notice: Tu grupo ah sido creado exitosamente, ahora puedes empezar a configurarlo.
+    form:
+      description_legend: tiene 4000 caracteres para describir el grupo.
+      legend_legend: "esto será usado en el titulo de la web, tienes 40 caracteres"
+      default_tags_legend: "separate tags by commas. only 10 default tags allowed."
+      logo_legend: "you can upload the group logo. the maximum file size is 2mb."
+      any_language: cualquiera
+      access: Configuración de Acceso
+  activerecord:
+    models:
+      groups: grupos
+      group: grupo
+      default_tags_message: no se puede tener mas de 10 tags por defecto.
+    attributes:
+      group:
+        name: nombre
+        subdomain: url
+        domain: dominio
+        legend: leyenda
+        description: descripción
+        state: estado
+        owner: "esta grupo fue creado por {{login}}"
+        group_created_by: created by
+        language: idioma
+        default_tags: "etiquetas por omision"
+        logo: logo
+        forum: permitir más de una respuesta por usuario
+        openid_only: solo las personas que usan openid pueden entrar a este sitio
+        registered_only: solo las personas registradas pueden entrar a este sitio
+        may_contain_adult_content: este sitio podria tener contenido para adultos
+        wysiwyg_editor: habilitar un editor mas amigable para el usuario
+

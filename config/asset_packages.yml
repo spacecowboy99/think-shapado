@@ -1,0 +1,33 @@
+---
+javascripts:
+- base:
+  - jquery
+  - jquery.tools.min
+  - jquery-ui
+  - jquery.autovideo
+  - jquery.autocomplete
+  - jquery.textarea
+  - jquery.wysiwyg
+  - showdown
+  - jquery.notifyBar
+  - components/search
+  - application
+  - highlight/prettify
+  - modules/sessions
+  - modules/index_question
+  - modules/show_question
+  - modules/new_question
+  - modules/index_welcome
+  - modules/show_user
+  - modules/index_user
+  - modules/tags_question
+  - modules/members
+  - modules/move_group
+  - openid/js/jquery.openid.min
+stylesheets:
+- base:
+  - jquery-ui
+  - compiled/application
+  - prettify
+  - ../javascripts/openid/css/style
+

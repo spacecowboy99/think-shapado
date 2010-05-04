@@ -1,0 +1,43 @@
+en:
+  layouts:
+    application:
+      title: "What do you think..?"
+      questions: Thoughts
+      questions_in: Thoughts about
+      questions_tagged: tagged with
+      ask_question: Share a thought...
+      tags: Tags
+      users: Thinkers
+      badges: Prizes
+      groups: Groups
+      unanswered: Drifters
+      logout: Logout
+      logged: Logged in as {{login}}
+      search: Search
+      forgot: Forgot?
+      log_in: Login
+      signup: signup
+      settings: My settings
+      languages: Languages
+      moderate: Moderate
+      manage_ads: manage ads
+      home: Home
+      subscribe: Join the Thinkers
+      openid:
+        explaination: "if you'd like to register or just log in, please select your openid provider:"
+    manage:
+      dashboard: dashboard
+      properties: properties
+      widgets: widgets
+      actions: actions
+      stats: stats
+      members: members
+      reputation: reputation
+      content: content
+      theme: theme
+      domain: domain
+      pages: pages
+      constrains: constraints
+      rewards: rewards
+      general: general
+      announcements: announcements
