@@ -1,9 +1,11 @@
 %h3
   =t(".title")
-.content
-  %ul.list
-      %li
-        Feedback
-      %li
-        Report Bug
+
+.secondary-navigation
+
+  %ul
+    %li
+      == #{link_to 'Feedback', '/thoughts/new?question[tags]=feedback,'}
+    %li
+      == #{link_to 'Bug Report', '/thoughts/new?question[tags]=bug,'+AppConfig.version}
 .clear

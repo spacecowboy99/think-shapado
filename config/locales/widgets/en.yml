@@ -18,3 +18,6 @@ en:
     users:
       title: Recent users
       description: "this widget display new registered members"
+    feedback:
+      title: Quick Thoughts
+      description: "quickly add bugs and feedback to a group"
