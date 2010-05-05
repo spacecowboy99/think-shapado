@@ -8,3 +8,4 @@ data/*.dat
 config/database.yml
 base_packaged.*
 backup/*
+scripts/*
