@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     protected :additional_data
   end
 
-  self.error_layout = 'application'
+#  self.error_layout = 'application'
 
   protect_from_forgery
 
