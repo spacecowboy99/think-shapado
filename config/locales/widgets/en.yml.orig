@@ -1,0 +1,34 @@
+en:
+  widgets:
+    index:
+      title: manage sidebar widgets
+      description: use the arrows to move your widgets
+    badges:
+      title: Recent prizes
+      description: "this widget display recent prizes earned by users"
+    groups:
+      title: Recent groups
+      description: "this widget displays the latest groups"
+    top_groups:
+      title: Top 5 groups
+      description: "this widget displays the top five groups"
+    top_users:
+      title: Top 5 users
+      description: "this widget displays top five users"
+    users:
+<<<<<<< HEAD:config/locales/widgets/en.yml
+      title: recent users
+      description: "this widget displays new registered members"
+    tag_cloud:
+      title: tag cloud
+      description: "this widget displays a tag cloud"
+    pages:
+      title: wiki pages
+      description: "this widget displays the list of wiki pages"
+=======
+      title: Recent users
+      description: "this widget display new registered members"
+    feedback:
+      title: Quick Thoughts
+      description: "quickly add bugs and feedback to a group"
+>>>>>>> 08da70e0e0f0c3c60f54eecd1e267e6109273c34:config/locales/widgets/en.yml

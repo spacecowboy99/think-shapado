@@ -15,6 +15,10 @@ module QuestionsHelper
         url = "http://identi.ca/notice/new?status_textarea=#{microblogging_message(question)}"
       when :facebook
         url = "http://www.facebook.com/sharer.php?u=#{microblogging_message(question)}&t=TEXTO"
+      when :linkedin
+        url = "http://linkedin.com?"
+      when :think
+        url = "http://think.it?"
     end
     url
   end
