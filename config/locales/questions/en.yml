@@ -23,11 +23,10 @@ en:
       related_questions: Related thoughts
       flags: reported as
       flag: Flag
-      close: Close
-      ban: Ban user
-      retag: Edit tags
+      flagged_as: Flagged as
       viewed: Viewed
       to_answer_question: to comment on this thought
+
       watch_tooltip: "watch this thought"
       answered_tooltip: "one of the insights was accepted as meaningful"
       unwatch_tooltip: "stop watching this thought"
@@ -36,6 +35,14 @@ en:
       request_closing_details: Close
       asked_on: "Thought on"
       last_activity: Last activity
+
+      retag: retag
+      request_closing: request closing
+      request_closing_details: request to close this question
+      close: close
+      ban: Ban user
+      retract_request: you have already made a request, would you line to retract it?
+      close_reason: "the question has been closed for the following reason:"
       answers_title:
         one: "{{count}} insight"
         other: "{{count}} insights"
@@ -70,6 +77,7 @@ en:
     tags:
       title: Topics
       tooltip: show thoughts tagged {{tag}}
+      filter: Search for thoughts
     new:
       title: Share a thought...
       how_to_ask: How to think...
@@ -84,7 +92,9 @@ en:
     watch:
       success:      "you will now receive notifications by mail for every new insight on this thought"
     unwatch:
-      success:      "you will not receive notifications by mail for every new insight on this anymore"
+      success:      "you will not receive notifications by mail for every new answer to this question anymore"
+    revert:
+      title: "revert question"
     move:
       title:        "move thought: {{title}}"
       group_label:  "move to the group with slug:"

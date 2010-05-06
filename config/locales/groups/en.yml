@@ -5,9 +5,9 @@ en:
       filter: "search for groups"
       actives: Active
       pendings: Pending
-      most_active: most active
+      most_active: Most active
       request_group: Request a new group
-      name: name
+      name: Group name
     group:
       about: About
       close: Close

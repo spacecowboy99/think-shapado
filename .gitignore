@@ -9,3 +9,4 @@ config/database.yml
 base_packaged.*
 backup/*
 scripts/*
+m-*

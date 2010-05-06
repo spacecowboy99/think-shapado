@@ -4,8 +4,8 @@ en:
       title: manage sidebar widgets
       description: use the arrows to move your widgets
     badges:
-      title: Recent prizes
-      description: "this widget display recent prizes earned by users"
+      title: Recent badges
+      description: "this widget display recent badges earned by users or questions"
     groups:
       title: Recent groups
       description: "this widget displays the latest groups"
@@ -26,4 +26,4 @@ en:
       description: "this widget displays the list of wiki pages"
     feedback:
       title: Quick Thoughts
-      description: "quickly add bugs and feedback to a group"
+      description: "quickly add bugs and feedback to a group" 
