@@ -32,6 +32,7 @@ en:
       unwatch_tooltip: "stop watching this thought"
       favorite_tooltip: "add this thought to your favorites"
       unfavorite_tooltip: "remove this thought from your favorites"
+      request_closing_details: Close
       asked_on: "Thought on"
       last_activity: Last activity
 

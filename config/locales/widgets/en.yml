@@ -16,10 +16,10 @@ en:
       title: Top 5 users
       description: "this widget displays top five users"
     users:
-      title: recent users
-      description: "this widget displays new registered members"
+      title: Recent users
+      description: "this widget display new registered members"
     tag_cloud:
-      title: tag cloud
+      title: Tag cloud
       description: "this widget displays a tag cloud"
     pages:
       title: wiki pages
