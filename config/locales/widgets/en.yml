@@ -4,16 +4,16 @@ en:
       title: manage sidebar widgets
       description: use the arrows to move your widgets
     badges:
-      title: recent badges
+      title: Recent badges
       description: "this widget display recent badges earned by users or questions"
     groups:
-      title: recent groups
+      title: Recent groups
       description: "this widget displays the latest groups"
     top_groups:
-      title: top 5 groups
+      title: Top 5 groups
       description: "this widget displays the top five groups"
     top_users:
-      title: top 5 users
+      title: Top 5 users
       description: "this widget displays top five users"
     users:
       title: recent users
@@ -24,3 +24,6 @@ en:
     pages:
       title: wiki pages
       description: "this widget displays the list of wiki pages"
+    feedback:
+      title: Quick Thoughts
+      description: "quickly add bugs and feedback to a group" 

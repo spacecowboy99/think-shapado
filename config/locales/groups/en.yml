@@ -1,22 +1,22 @@
 en:
   groups:
     index:
-      title: groups
+      title: Groups
       filter: "search for groups"
-      actives: active
-      pendings: pending
-      most_active: most active
-      request_group: request a new group
-      name: name
+      actives: Active
+      pendings: Pending
+      most_active: Most active
+      request_group: Request a new group
+      name: Group name
     group:
-      about: about
-      close: close
-      accept_group: accept this group
-      close_group: close this group
+      about: About
+      close: Close
+      accept_group: Accept this group
+      close_group: Close this group
       allow_ads: allow ads
       disallow_ads: disallow ads
     show:
-      title: "about {{name}}"
+      title: "About {{name}}"
       visit_group: visit this group
       group_awaiting_acceptance: "this group is awaiting for the acceptance of a moderator."
       group_closed: this group was closed.
