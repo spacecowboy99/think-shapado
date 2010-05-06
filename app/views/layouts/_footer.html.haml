@@ -1,31 +1,11 @@
 
 -if !current_group.footer.blank?
-  =current_group.footer
+  #footer_container
+    =current_group.footer
 -else
-  #cc.center
-    = image_tag('/images/ccby.png')
-    == All Shapado.com content and data are available under the #{link_to 'Creative Commons Attribution 3.0 license', 'http://creativecommons.org/licenses/by/3.0/'}
 
-  #blog.center
-    = link_to 'blog', 'http://blog.ricodigo.com/shapado'
-    |
-    = link_to 'twitter', 'http://twitter.com/shapado'
-    |
-    = link_to 'identi.ca', 'http://identi.ca/shapado'
-    |
-    = link_to 'irc', 'irc://irc.freenode.org/shapado'
-    = link_to '(web chat)', domain_url+'chat'
-    |
-    %b
-      = link_to 'feedback', feedback_url, :class => "feedback", :id => "feedback"
-    |
-    = link_to 'tos', tos_path
-    |
-    = link_to 'privacy', privacy_path
-    #feedbackform.hide
-      = render :partial => "welcome/feedback"
 
 -unless current_group.isolate || current_group.private
-  #default_footer.center
-    == Powered by #{link_to 'Shapado', 'http://gitorious.org/shapado'} #{AppConfig.version} under the #{link_to 'GNU Affero General Public License','http://www.fsf.org/licensing/licenses/agpl-3.0.html'}
+  #default_footer.left
+    == Powered by #{link_to 'Shapado', 'http://gitorious.org/shapado'} #{AppConfig.version} [#{AppConfig.increment}]  licensed under the #{link_to 'GNU Affero GPL','http://www.fsf.org/licensing/licenses/agpl-3.0.html'}
 

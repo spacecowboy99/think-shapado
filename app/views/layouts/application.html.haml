@@ -15,7 +15,7 @@
       #header
         = current_group.head
         #main-bar{:class => @active_tab}
-          #logo{:style => "min-height: 63px"}
+          #logo
             -if current_group.has_logo?
               =link_to image_tag(logo_group_path(current_group), :class => "group_logo"), domain_url(:custom => current_group.domain)
             -else
@@ -65,6 +65,7 @@
         .clear
         = render :partial => "shared/ads/footer_ads"
 
+    #footer_container
       #footer
         .block.content
           = render :partial => "layouts/footer"

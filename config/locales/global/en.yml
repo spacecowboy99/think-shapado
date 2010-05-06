@@ -1,27 +1,26 @@
 en:
   scaffold:
-    sure: are you sure you want to delete this {{model}} ?
-    show: show
-    edit: edit
-    destroy: delete
-    back: back
-    update: update
-    cancel: cancel
-    close: close
-    create: create
-    new: add new {{model}}
+    sure: Are you sure you want to delete this {{model}} ?
+    show: Show
+    edit: Edit
+    destroy: Delete
+    back: Back
+    update: Update
+    cancel: Cancel
+    close: Close
+    create: Create
+    new: Add new {{model}}
     more: "more ..."
-    add: add
-    send: send
-    save: save
-    details: details
+    add: Add
+    send: Send
+    save: Save
   time:
-    today: today
+    today: Today
     ago: "{{time}} ago"
   messages:
     success: "{{model}} was successfully {{action}}."
   models:
-    question:   the question
+    question:   the thought
   actions:
     created:     created
     deleted:     deleted
@@ -38,10 +37,10 @@ en:
     current: current
     previous: previous
   feeds:
-    question: subscribe to this question
-    questions: subscribe to all questions
-    tag: subscribe to tag
-    user: subscribe to user questions
+    question: subscribe to this thought
+    questions: subscribe to all thoughts
+    tag: subscribe to topic
+    user: subscribe to this user
     feed: Feed
   languages:
     en:      english
