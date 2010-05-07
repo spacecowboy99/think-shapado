@@ -37,6 +37,7 @@ en:
       last_activity: Last activity
 
       retag: retag
+      unauthenticated_retag: you need an account to retag questions
       request_closing: request closing
       request_closing_details: request to close this question
       close: close
