@@ -52,4 +52,3 @@ ActionMailer::Base.default_url_options[:host] = AppConfig.domain
 AppConfig.enable_facebook_auth = File.exist?(RAILS_ROOT+"/config/facebooker.yml")
 
 AppConfig.version = File.read(RAILS_ROOT+"/VERSION")
-AppConfig.increment = File.read(RAILS_ROOT+"/INCREMENT")
