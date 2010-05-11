@@ -108,7 +108,7 @@ $(document).ready(function() {
                             var textarea = form.find("textarea");
                             window.onbeforeunload = null;
                             var comment = $(data.html)
-                            comments.append(comment)
+                            comments.prev().append(comment)
                             highlightEffect(comment)
                             showMessage(data.message, "notice")
                             form.hide();
