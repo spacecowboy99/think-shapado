@@ -1,8 +1,6 @@
 
 $(document).ready(function() {
-  $("form.nestedAnswerForm").hide();
   $(".forms form.flag_form").hide();
-  $("#add_comment_form").hide();
   $("#close_question_form").hide();
 
   $("form.vote_form button").live("click", function(event) {
@@ -35,6 +33,27 @@ $(document).ready(function() {
     return false;
   });
 
+  $(".comment .comment-votes form.vote-up-comment-form input[name=vote_up]").live("click", function(event) {
+    var btn = $(this)
+    var form = $(this).parents("form");
+    btn.hide();
+    $.post(form.attr("action"), form.serialize()+"&"+btn.attr("name")+"=1", function(data){
+      if(data.success){
+        if(data.vote_state == "deleted") {
+          btn.attr("src", "/images/dialog-ok.png" )
+        } else {
+          btn.attr("src", "/images/dialog-ok-apply.png" )
+        }
+        btn.parents(".comment-votes").children(".votes_average").html(data.average);
+        showMessage(data.message, "notice")
+      } else {
+        showMessage(data.message, "error")
+      }
+      btn.show();
+    }, "json");
+    return false;
+  });
+
   $("form.mainAnswerForm .button").live("click", function(event) {
     var form = $(this).parents("form");
     var answers = $("#answers .block");
@@ -54,8 +73,10 @@ $(document).ready(function() {
                     answers.append(answer)
                     highlightEffect(answer)
                     showMessage(data.message, "notice")
-                    form.find("textarea").text("");
+                    form.find("textarea").val("");
                     form.find("#markdown_preview").html("");
+                    $("#wysiwyg_editor").wysiwyg('clear');
+                    removeFromLocalStorage(location.href, "markdown_editor");
                   } else {
                     showMessage(data.message, "error")
                     if(data.status == "unauthenticate") {
@@ -84,14 +105,15 @@ $(document).ready(function() {
              type: "POST",
              success: function(data, textStatus, XMLHttpRequest) {
                           if(data.success) {
+                            var textarea = form.find("textarea");
                             window.onbeforeunload = null;
-
                             var comment = $(data.html)
                             comments.append(comment)
                             highlightEffect(comment)
                             showMessage(data.message, "notice")
                             form.hide();
-                            form.find("textarea").val("");
+                            textarea.val("");
+                            removeFromLocalStorage(location.href, textarea.attr('id'));
                           } else {
                             showMessage(data.message, "error")
                             if(data.status == "unauthenticate") {
