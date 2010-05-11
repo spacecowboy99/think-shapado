@@ -37,8 +37,8 @@ en:
     current: current
     previous: previous
   feeds:
-    question: subscribe to this thought
-    questions: subscribe to all thoughts
+    question: Feed for thought
+    questions: Feed for thoughts
     tag: subscribe to topic
     user: subscribe to this user
     feed: Feed

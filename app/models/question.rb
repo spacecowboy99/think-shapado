@@ -58,7 +58,7 @@ class Question
   has_many :answers, :dependent => :destroy
   has_many :flags, :as => "flaggeable", :dependent => :destroy
   has_many :badges, :as => "source"
-  has_many :comments, :as => "commentable", :order => "created_at asc", :dependent => :destroy
+  has_many :comments, :as => "commentable", :order => "created_at desc", :dependent => :destroy
   has_many :close_requests
 
   validates_presence_of :user_id

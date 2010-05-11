@@ -133,9 +133,6 @@
   -if logged_in?
     =link_to t("comments.shared.add_comment"), "#", :id => "add_comment_link", :rel => 'nofollow'
 
-  .comments
-    -@question.comments.each do |comment|
-      = render :partial => "comments/comment", :object => comment, :locals => {:source => source, :mini => true}
   .clear
   .forms
     .comment-form-question
@@ -146,6 +143,12 @@
           = submit_tag t("comments.shared.comment_submit"), :class => "button"
           = t("global.or")
           = link_to t('scaffold.cancel'), '', :class => 'cancel_comment'
+
+  .comments
+    -@question.comments.each do |comment|
+      = render :partial => "comments/comment", :object => comment, :locals => {:source => source, :mini => true}
+
+
 
 %a{:name=>"answers"}
 #answers
@@ -189,6 +192,8 @@
         = t(".share")
       .content
         %ul.share
+          %li
+            = render :partial => "shapado"
           %li
             = render :partial => "twitter"
           %li
