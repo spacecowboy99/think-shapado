@@ -133,9 +133,6 @@
   -if logged_in?
     =link_to t("comments.shared.add_comment"), "#", :id => "add_comment_link", :rel => 'nofollow'
 
-  .comments
-    -@question.comments.each do |comment|
-      = render :partial => "comments/comment", :object => comment, :locals => {:source => source, :mini => true}
   .clear
   .forms
     .comment-form-question
@@ -147,6 +144,12 @@
           = t("global.or")
           = link_to t('scaffold.cancel'), '', :class => 'cancel_comment'
 
+  .comments
+    -@question.comments.each do |comment|
+      = render :partial => "comments/comment", :object => comment, :locals => {:source => source, :mini => true}
+
+
+
 %a{:name=>"answers"}
 #answers
   .secondary-navigation{:class => @active_subtab.to_s}
@@ -157,9 +160,9 @@
       %li.newest
         = link_to t("questions.index.newest"), question_path(@question, :sort=>"newest", :anchor => "answers")
       %li.votes
-        = link_to t("questions.index.votes"), question_path(@question, :sort=>"votes", :anchor => "answers")
+        = link_to t("questions.index.votes"), question_path(@question, :sort=>"votes", :anchor => "answers"), :rel => "nofollow"
       %li.oldest
-        = link_to t("questions.index.oldest"), question_path(@question, :sort=>"oldest", :anchor => "answers")
+        = link_to t("questions.index.oldest"), question_path(@question, :sort=>"oldest", :anchor => "answers"), :rel => "nofollow"
     .clear
   .block
     -if @question.accepted
@@ -189,6 +192,8 @@
         = t(".share")
       .content
         %ul.share
+          %li
+            = render :partial => "shapado"
           %li
             = render :partial => "twitter"
           %li

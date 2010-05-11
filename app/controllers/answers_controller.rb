@@ -45,6 +45,8 @@ class AnswersController < ApplicationController
 
   def show
     @answer = Answer.find(params[:id])
+    raise PageNotFound if @answer.nil?
+
     @question = @answer.question
     respond_to do |format|
       format.html
@@ -92,7 +94,7 @@ class AnswersController < ApplicationController
           users.push(@question.user) if @question.user != current_user
           followers = []
 
-          followers = @answer.user.followers(:languages => [@question.language])
+          followers = @answer.user.followers(:languages => [@question.language], :group_id => current_group.id)
 
           (users - followers).each do |u|
             if !u.email.blank? && u.notification_opts.new_answer

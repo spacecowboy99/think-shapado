@@ -4,6 +4,7 @@ class Question
   include MongoMapperExt::Slugizer
   include MongoMapperExt::Tags
   include Support::Versionable
+  include Support::Voteable
 
   ensure_index :tags
   ensure_index :language
@@ -16,8 +17,6 @@ class Question
 
   key :answers_count, Integer, :default => 0, :required => true
   key :views_count, Integer, :default => 0
-  key :votes_count, Integer, :default => 0
-  key :votes_average, Integer, :default => 0
   key :hotness, Integer, :default => 0
   key :flags_count, Integer, :default => 0
   key :favorites_count, Integer, :default => 0
@@ -57,10 +56,9 @@ class Question
   belongs_to :last_target, :polymorphic => true
 
   has_many :answers, :dependent => :destroy
-  has_many :votes, :as => "voteable", :dependent => :destroy
   has_many :flags, :as => "flaggeable", :dependent => :destroy
   has_many :badges, :as => "source"
-  has_many :comments, :as => "commentable", :order => "created_at asc", :dependent => :destroy
+  has_many :comments, :as => "commentable", :order => "created_at desc", :dependent => :destroy
   has_many :close_requests
 
   validates_presence_of :user_id
@@ -124,37 +122,24 @@ class Question
                                                :upsert => true)
   end
 
-  def add_vote!(v, voter)
-    self.collection.update({:_id => self._id}, {:$inc => {:votes_count => 1,
-                                                          :votes_average => v}},
-                                                         :upsert => true,
-                                                         :safe => true)
+  def on_add_vote(v, voter)
     if v > 0
       self.user.update_reputation(:question_receives_up_vote, self.group)
       voter.on_activity(:vote_up_question, self.group)
-      self.user.upvote!(self.group)
     else
       self.user.update_reputation(:question_receives_down_vote, self.group)
       voter.on_activity(:vote_down_question, self.group)
-      self.user.downvote!(self.group)
     end
     on_activity(false)
   end
 
-  def remove_vote!(v, voter)
-    self.collection.update({:_id => self._id}, {:$inc => {:votes_count => -1,
-                                                          :votes_average => (-v)}},
-                                                         :upsert => true,
-                                                         :safe => true)
-
+  def on_remove_vote(v, voter)
     if v > 0
       self.user.update_reputation(:question_undo_up_vote, self.group)
       voter.on_activity(:undo_vote_up_question, self.group)
-      self.user.upvote!(self.group, -1)
     else
       self.user.update_reputation(:question_undo_down_vote, self.group)
       voter.on_activity(:undo_vote_down_question, self.group)
-      self.user.downvote!(self.group, -1)
     end
     on_activity(false)
   end
@@ -245,6 +230,10 @@ class Question
 
   def check_useful
     unless disable_limits?
+      if !self.title.blank? && self.title.gsub(/[^\x00-\x7F]/, "").size < 5
+        return
+      end
+
       if !self.title.blank? && (self.title.split.count < 4)
         self.errors.add(:title, I18n.t("questions.model.messages.too_short", :count => 4))
       end
@@ -256,12 +245,12 @@ class Question
   end
 
   def disallow_spam
-    unless disable_limits?
+    if new? && !disable_limits?
       last_question = Question.first( :user_id => self.user_id,
                                       :group_id => self.group_id,
                                       :order => "created_at desc")
 
-      valid = (last_question.nil? || (new? && (Time.now - last_question.created_at) > 20))
+      valid = (last_question.nil? || (Time.now - last_question.created_at) > 20)
       if !valid
         self.errors.add(:body, "Your question looks like spam. you need to wait 20 senconds before posting another question.")
       end
