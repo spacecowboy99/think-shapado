@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
     include SuperExceptionNotifier
     include ExceptionNotifierHelper
 
+    self.exception_notifiable_silent_exceptions = []
+    self.exception_notifiable_silent_exceptions << SuperExceptionNotifier::CustomExceptionClasses::PageNotFound
+    self.exception_notifiable_silent_exceptions << ActionController::InvalidAuthenticityToken
+
     local_addresses.clear
 
     exception_data :additional_data
@@ -234,7 +238,7 @@ class ApplicationController < ActionController::Base
   end
 
   def is_bot?
-    request.user_agent =~ /\b(Baidu|Gigabot|Googlebot|libwww-perl|lwp-trivial|msnbot|SiteUptime|Slurp|WordPress|ZIBB|ZyBorg|Java|Yandex|Linguee|LWP::Simple|Exabot|ia_archiver|Purebot|Twiceler|StatusNet)\b/i
+    request.user_agent =~ /\b(Baidu|Gigabot|Googlebot|libwww-perl|lwp-trivial|msnbot|SiteUptime|Slurp|WordPress|ZIBB|ZyBorg|Java|Yandex|Linguee|LWP::Simple|Exabot|ia_archiver|Purebot|Twiceler|StatusNet|Baiduspider)\b/i
   end
 
   def build_date(params, name)
