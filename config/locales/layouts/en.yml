@@ -8,7 +8,7 @@ en:
       ask_question: Share a thought...
       tags: Tags
       users: Thinkers
-      badges: Prizes
+      badges: Carrots
       groups: Groups
       unanswered: Drifters
       logout: Logout
@@ -32,7 +32,7 @@ en:
       actions: actions
       stats: stats
       members: members
-      reputation: reputation
+      reputation: Karma
       content: content
       theme: theme
       domain: domain

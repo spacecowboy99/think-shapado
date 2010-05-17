@@ -13,19 +13,19 @@ en:
         general:
           title: group properties
         constrains:
-          title: constrains
-          reputation_constrains_subtitle: list of reputations constrains for each action
-          reputation_constrains_description: this formular allows you to configure how much reputation points users to be able to do a given action
+          title: constraints
+          reputation_constrains_subtitle: list of karmic constraints for each action
+          reputation_constrains_description: this formula allows you to configure how much karma users need to do something
         rewards:
-          title: rewards
-          reputation_rewards_subtitle: list of reputations rewards
-          reputation_rewards_description: this formular allows you to configure how users can win and lose reputation points for a given action
+          title: Carrots
+          reputation_rewards_subtitle: list of karma carrots
+          reputation_rewards_description: this formula allows you to configure how users can gain (or lose) karma for a given action
         theme:
           title: setup the group's theme
         domain:
           title: setup your domain
           description: "You can map your site so it can be accessed through your own custom domain, this is how you do it:"
-          instruction1: "To do so you first need to log on to your domain provider (the site where you bought your domain such as {{subdomain}}.com)."
+          instruction1: "First log on to your domain provider (the site where you bought your domain such as {{subdomain}}.com)."
           instruction2: There you need to go to the DNS section and create something called a CNAME.
           instruction3: "Pick 'www' or anything else as the name of your CNAME."
           instruction4: "Then in the host or destination field, put your current shapado domain: {{domain}}."

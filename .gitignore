@@ -1,4 +1,7 @@
 *~
+*es-AR.yml
+*fr.yml
+*pt-PT.yml
 *.orig
 coverage
 *.log

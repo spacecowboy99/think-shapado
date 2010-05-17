@@ -1,6 +1,0 @@
-fr:
-  imports:
-    subtabs:
-      need_confirmation:
-        name: ont besoin de confirmation
-        title: envoyer emails de confirmation
