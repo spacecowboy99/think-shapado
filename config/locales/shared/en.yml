@@ -4,6 +4,8 @@ en:
       logged_as: "Logged in as {{login}}"
       admin: Admin
       user_page: My profile
+    topbar_groups:
+      admin: Group Admin
     current_tags:
       title: Selected tags
     layout:

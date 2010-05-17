@@ -11,7 +11,10 @@
   %body
     = render :partial => "shared/analytics"
     #container{:class => @current_class}
-      = render :partial => "shared/topbar"
+      -if current_group.theme == "mental-block"
+        = render :partial => "shared/topbar"
+      -if current_group.theme != "mental-block"
+        = render :partial => "shared/topbar_groups"
       #header
         = current_group.head
         #main-bar{:class => @active_tab}
