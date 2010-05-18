@@ -1,17 +1,23 @@
 #top-bar-outer
-  background: #fff url(/images/think/github-bar-left.png) no-repeat
+  float: right
+  height: 40px
+  background: url(/images/think/think-bar-left.png) no-repeat left -75%
+  padding-left: 6px
+
 
 #top-bar
   .entry
     float: left
     margin-left: 4px
     a
-      color: white
-      text-shadow: #2C5883 -1px -1px 0px
+      color: #eee
+      text-shadow: #2C5883 1px 1px 1px
     a:hover
-      color: black
-      text-shadow: #555 -1px -1px 0px
+      color: #111
+      text-decoration: underline
+      text-shadow: #2C5883 1px 1px 1px
     .gravatar
+      border: 1px solid #2C5883
       line-height: 20px
       display: inline
       margin-bottom: -5px
@@ -25,9 +31,9 @@
     #search-field
       width: 148px
       height: 18px
-      background: #4c82c4 url(/images/think/think-search-icon.png) no-repeat right 50%
+      background: #4c82c4 //url(/images/think/think-search-icon.png) no-repeat right 50%
       padding: 0px 8px
-      border: 1px inset #2C5883
+      border: 1px inset #4c82c4
       +rounded(2px,2px,2px,2px)
   padding: 0
   margin: 0

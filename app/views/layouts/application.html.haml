@@ -16,10 +16,11 @@
           = link_to image_tag(logo_group_path(current_group), :class => "group_logo"), domain_url(:custom => current_group.domain)
         -else
           = link_to image_tag("default_logo.png", :class => "group_logo"), domain_url(:custom => current_group.domain)
-      -if current_group.theme == "mental-block"
-        = render :partial => "shared/topbar"
-      -if current_group.theme != "mental-block"
-        = render :partial => "shared/topbar_groups"
+      #top-bar-outer
+        -if current_group.theme == "mental-block"
+          = render :partial => "shared/topbar"
+        -if current_group.theme != "mental-block"
+          = render :partial => "shared/topbar_groups"
       #header
         = current_group.head
         #main-bar{:class => @active_tab}
