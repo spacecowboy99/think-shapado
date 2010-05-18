@@ -12,7 +12,7 @@ ActionController::Routing::Routes.draw do |map|
   map.chat '/chat', :controller => 'doc', :action => 'chat'
   map.feedback '/feedback', :controller => 'welcome', :action => 'feedback'
   map.send_feedback '/send_feedback', :controller => 'welcome', :action => 'send_feedback'
-  map.settings '/settings', :controller => 'users', :action => 'edit'
+  map.settings '/profile', :controller => 'users', :action => 'edit'
   map.tos '/tos', :controller => 'doc', :action => 'tos'
   map.privacy '/privacy', :controller => 'doc', :action => 'privacy'
   map.resources :users, :member => { :change_preferred_tags => :any,

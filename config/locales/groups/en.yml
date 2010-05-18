@@ -36,8 +36,8 @@ en:
       access: Access Settings
   activerecord:
     models:
-      groups: groups
-      group: group
+      groups: My Groups
+      group: My Group
       default_tags_message: "you can't have more than 10 default tags"
     attributes:
       group:
