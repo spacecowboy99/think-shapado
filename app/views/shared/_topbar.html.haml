@@ -1,17 +1,5 @@
 #top-bar
   -if logged_in?
-    .entry
-      ="Group:"
-    -if !current_group.isolate && AppConfig.enable_groups
-      .entry
-        %ul.combobox
-          %li
-            =link_to t("activerecord.models.groups"), groups_path
-            %ul
-              -current_user.groups(:select => [:name, :domain]).each do |group|
-                %li
-                  =link_to h(group.name), domain_url(:custom => group.domain)
-        |
     -if current_user.owner_of?(current_group)
       .entry
         =link_to t(".admin"), manage_properties_path, :class => "manage_link"
@@ -27,6 +15,17 @@
           = link_to(h(current_user.login), user_path(current_user))
           %span.reputation{:title => t("activerecord.attributes.user.reputation")}=format_number(current_user.reputation_on(current_group))
         |
+    -if !current_group.isolate && AppConfig.enable_groups
+      .entry
+        %ul.combobox
+          %li
+            =link_to t("activerecord.models.groups"), groups_path
+            %ul
+              -current_user.groups(:select => [:name, :domain]).each do |group|
+                %li
+                  =link_to h(group.name), domain_url(:custom => group.domain)
+        |
+
     .entry
       =link_to t("layouts.application.settings"), settings_path
       |
@@ -51,4 +50,5 @@
   .entry
     - form_tag search_path, :method => :get, :style => "margin-left: 20px; max-width: 10%; display: inline" do
       = text_field_tag :q, params[:q], :id => "search-field"
-.clear
+  .entry
+    %input{:type => "submit", :style => "width:20px; height:20px;", :value => "..."}

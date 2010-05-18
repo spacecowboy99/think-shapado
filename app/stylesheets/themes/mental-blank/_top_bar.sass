@@ -1,11 +1,14 @@
+#top-bar-outer
+  background: #fff url(/images/think/github-bar-left.png) no-repeat
+
 #top-bar
   .entry
     float: left
     margin-left: 4px
     a
-      color: #eee
-    a:hover
       color: #111
+    a:hover
+      color: pink
     .gravatar
       line-height: 20px
       display: inline
@@ -26,15 +29,16 @@
       +rounded(8px,8px,8px,8px)
   padding: 0
   margin: 0
+  height: 50px
   line-height: 36px
   font-weight: normal
   font-size: 0.9em
   float: right
-  color: #eee
+  color: #111
   text-shadow: ddd -1px -1px 0px
-  background: #ccc
-  +rounded(0px,0px,8px,8px)
+  background: url(/images/think/github-bar-right.png) no-repeat
+  //+rounded(0px,0px,8px,8px)
   a
-    color:white
+    color:black
   a:hover
-    color:black 
+    color:pink 
