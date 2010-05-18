@@ -5,19 +5,19 @@ en:
       empty: "this group doesn't have any members, participate to join this group."
       filter: "search for users"
       reputation: Karma
-      newest: newest
-      oldest: oldest
+      newest: Newest
+      oldest: Oldest
       name: name
       reputation_tooltip: users sorted by higher karma
       newest_tooltip: users who just joined
       oldest_tooltip: users who were the first to join
       name_tooltip: users sorted alphabetically
     new:
-      title: sign up as a new user
-      submit: sign up
+      title: Sign up as a new user
+      submit: Sign up
     edit:
-      title: settings
-      submit: save
+      title: Profile
+      submit: Save Profile
     show:
       follow: follow
       unfollow: unfollow
@@ -26,15 +26,15 @@ en:
     unfollow:
       flash_notice: "The user {{user}} was removed from your friends"
     form:
-      information: information
+      information: Update your personal information here
       notifications: notifications
-      new_answer_notification: get mail notifications for new answers
-      give_advice_notification: receive email notifications about questions in your field of expertise
-      activities_notification: receive email notifications about system activities such as earned badges, new followers, etc.
+      new_answer_notification: get email notifications for new insights
+      give_advice_notification: get email notifications about thoughts in your field of expertise
+      activities_notification: get email notifications about system activities such as earned badges, new followers, etc.
       reports_notification: receive a report with latest group activity (only for group admins)
       avatar_tip: "change your profile image using gravatar"
     create:
-      flash_notice: "thanks for signing up!"
+      flash_notice: "Thanks for signing up!"
       flash_error:  "we couldn't set up that account, sorry.  please try again, or contact an admin (link is above)."
     messages:
       errors:
@@ -54,9 +54,9 @@ en:
       user: user
     attributes:
       user:
-        login: username
+        login: Username
         email: email
-        name: real name
+        name: Real Name
         current_password: current password
         password: password
         password_confirmation: password confirmation

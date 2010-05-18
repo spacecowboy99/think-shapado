@@ -11,6 +11,11 @@
   %body
     = render :partial => "shared/analytics"
     #container{:class => @current_class}
+      #logo
+        -if current_group.has_logo?
+          = link_to image_tag(logo_group_path(current_group), :class => "group_logo"), domain_url(:custom => current_group.domain)
+        -else
+          = link_to image_tag("default_logo.png", :class => "group_logo"), domain_url(:custom => current_group.domain)
       -if current_group.theme == "mental-block"
         = render :partial => "shared/topbar"
       -if current_group.theme != "mental-block"
@@ -18,11 +23,6 @@
       #header
         = current_group.head
         #main-bar{:class => @active_tab}
-          #logo
-            -if current_group.has_logo?
-              =link_to image_tag(logo_group_path(current_group), :class => "group_logo"), domain_url(:custom => current_group.domain)
-            -else
-              = link_to image_tag("default_logo.png", :class => "group_logo"), domain_url(:custom => current_group.domain)
           = render :partial => "shared/user_navigation"
           .clear
           -announcements = current_announcements(session[:announcement_hide_time])

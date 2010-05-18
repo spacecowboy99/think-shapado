@@ -1,10 +1,6 @@
 #top-bar
   -if logged_in?
-    .entry
-      ="Think"
-      |
-      // =image_tag('/images/think/think_logo_topbar.png')
-    .entry
+
     -if current_user.owner_of?(current_group)
       .entry
         =link_to t(".admin"), manage_properties_path, :class => "manage_link"
@@ -30,14 +26,11 @@
                 %li
                   =link_to h(group.name), domain_url(:custom => group.domain)
         |
+
     .entry
       =link_to t("layouts.application.settings"), settings_path
       |
 
-    -top_bar_links.each do |link|
-      .entry
-        =link
-        |
     .entry
       =link_to t("layouts.application.logout"), destroy_user_session_path
   -else
@@ -55,6 +48,8 @@
     - form_tag search_path, :method => :get, :style => "margin-left: 20px; max-width: 10%; display: inline" do
       = text_field_tag :q, params[:q], :id => "search-field"
   .entry
-    ="box"
+    %input{:type => "submit", :style => "width:20px; height:20px;", :value => "..."}
+  .entry{:style => "margin:5px 8px 4px 4px;"}
+    =image_tag('/images/think/think_icon_20.png')
 
 
