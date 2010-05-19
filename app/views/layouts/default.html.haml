@@ -1,0 +1,86 @@
+!!! Strict
+%html{"xml:lang" => I18n.locale, :lang => I18n.locale, :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %title
+      &= page_title
+    = current_group.head_tag
+    = render :partial => "shared/layout/meta"
+    = render :partial => "shared/layout/javascript"
+    = render :partial => "shared/layout/css"
+
+  %body
+    = render :partial => "shared/analytics"
+    #container{:class => @current_class}
+      #logo
+        -if current_group.has_logo?
+          = link_to image_tag(logo_group_path(current_group), :class => "group_logo"), domain_url(:custom => current_group.domain)
+        -else
+          = link_to image_tag("default_logo.png", :class => "group_logo"), domain_url(:custom => current_group.domain)
+      #top-bar-outer
+        -if current_group.theme == "mental-block"
+          = render :partial => "shared/topbar"
+        -if current_group.theme != "mental-block"
+          = render :partial => "shared/topbar_groups"
+      #header
+        = current_group.head
+        #main-bar{:class => @active_tab}
+          = render :partial => "shared/user_navigation"
+          .clear
+          -announcements = current_announcements(session[:announcement_hide_time])
+          -unless announcements.empty?
+            #announcement
+              #announcement_message
+                -announcements.each do |announcement|
+                  =markdown(announcement.message)
+              =link_to "Close", hide_announcements_path, :id => "hide_announcement"
+              .clear
+
+
+      #wrapper
+        #main
+          = render :partial => "shared/ads/header_ads"
+          #block-text.block
+            .secondary-navigation{:class => @active_subtab.to_s}
+              = yield :subtabs
+              .clear
+            .content
+              %p.markdown
+                = show_flash_messages(:class => "flash", :markdown => true)
+              = render :partial => "shared/ads/content_ads"
+              .inner
+                = yield
+                .clear
+        #sidebar
+          = yield :sidebar
+
+          = render :partial => "shared/ads/context_panel_ads"
+
+          -unless feed_urls.empty?
+            .block
+              %h3
+                = t(".subscribe")
+              .sidebar-block
+                .feeds
+                  -feed_urls.each do |title, url|
+                    .feed_entry
+                      %a{:href => url}
+                        %span
+                          =image_tag "atom.png", :width => 20
+                        =h(title)
+                  .clear
+        .clear
+        = render :partial => "shared/ads/footer_ads"
+
+    #footer_container
+      #footer
+        .block.content
+          = render :partial => "layouts/footer"
+    <script type="text/javascript"> 
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script> 
+    <script type="text/javascript"> 
+    try {
+    var pageTracker = _gat._getTracker("UA-16339855-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script> 

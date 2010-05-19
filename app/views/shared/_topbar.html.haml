@@ -1,5 +1,13 @@
 #top-bar
   -if logged_in?
+    -if current_user.owner_of?(current_group)
+      .entry
+        =link_to t(".admin"), manage_properties_path, :class => "manage_link"
+        |
+    -if current_user.mod_of?(current_group)
+      .entry
+        =link_to t("layouts.application.moderate"), moderate_path, :class => "moderate_link"
+        |
     .entry
       %ul.combobox
         %li
@@ -17,20 +25,15 @@
                 %li
                   =link_to h(group.name), domain_url(:custom => group.domain)
         |
-
+    .entry
+      ="My People"
+      |
     .entry
       =link_to t("layouts.application.settings"), settings_path
       |
-    -if current_user.owner_of?(current_group)
-      .entry
-        =link_to t(".admin"), manage_properties_path, :class => "manage_link"
-        |
-    -if current_user.mod_of?(current_group)
-      .entry
-        =link_to t("layouts.application.moderate"), moderate_path, :class => "moderate_link"
-        |
     .entry
       =link_to t("layouts.application.logout"), destroy_user_session_path
+      |
   -else
     -if AppConfig.is_shapadocom && !current_group.isolate
       .entry
@@ -42,12 +45,11 @@
         |
     .entry
       =link_to t("layouts.application.log_in"), new_user_session_path
+      |
   .entry
-    - form_tag search_path, :method => :get, :style => "margin-left: 20px; max-width: 10%; display: inline" do
-      = text_field_tag :q, params[:q], :id => "search-field"
-  .entry
-    %input{:type => "submit", :style => "width:20px; height:20px;padding:0", :value => "&#0187;"}
-  .entry{:style => "margin:5px 8px 4px 4px;"}
+    #topbar-button
+      =link_to t("layouts.application.ask_question"), new_question_path, :rel => 'nofollow'
+  .entry{:style => ""}
     =image_tag('/images/think/think_icon.png', :height => "20px", :width =>"20px")
 
 

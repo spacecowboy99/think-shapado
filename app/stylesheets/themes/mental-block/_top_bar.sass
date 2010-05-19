@@ -1,7 +1,7 @@
 #top-bar-outer
   float: right
   height: 40px
-  background: url(/images/think/think-bar-left.png) no-repeat left -75%
+  //background: url(/images/think/think-bar-left.png) no-repeat left -75%
   padding-left: 6px
 
 
@@ -35,16 +35,34 @@
       padding: 0px 8px
       border: 1px inset #4c82c4
       +rounded(2px,2px,2px,2px)
+    #topbar-button
+      a
+        color: white
+        font-weight: bold
+        font-size: 1em
+        text-shadow: none
+        //text-shadow: #111 1px 1px 1px
+        background: orange //#d84c15
+        //border: 1px solid white
+        padding: 2px 16px
+        +rounded(4px,4px,4px,4px)
+      a:hover
+        color: #111
+        text-decoration: none
+        text-shadow: none
+        //text-shadow: #111 1px 1px 1px
+        background: #d3a77c //#b37d3b
+       
   padding: 0
-  margin: 0
+  margin: 8px 0
   height: 40px
-  line-height: 36px
+  line-height: 20px
   font-weight: normal
   font-size: 0.9em
   float: right
   color: #fff
   text-shadow: #2C5883 -1px -1px 0px
-  background: url(/images/think/think-bar-right.png) no-repeat right -75%
+  //background: url(/images/think/think-bar-right.png) no-repeat right -75%
   //+rounded(0px,0px,8px,8px)
   a
     color:black
