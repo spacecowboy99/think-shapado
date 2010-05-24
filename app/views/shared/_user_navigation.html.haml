@@ -1,6 +1,8 @@
 %ul
   %li.questions
     =link_to t("layouts.application.questions"), questions_path
+  %li.unanswered
+    =link_to h('Links'), unanswered_questions_path
   %li.tags
     =link_to t("layouts.application.tags"), tags_questions_path
   %li.users
@@ -9,10 +11,11 @@
     =link_to t("layouts.application.badges"), badges_path
   %li.groups
     =link_to t("layouts.application.groups"), groups_path
-  %li.unanswered.last
-    =link_to t("layouts.application.unanswered"), unanswered_questions_path
-  %li.search-form
-    .search-field
-      - form_tag search_path, :method => :get, :style => "margin-left: 20px; max-width: 10%; display: inline" do
-        = text_field_tag :q, params[:q], :id => "search-field"
-        %input{:type => "submit", :id => "search-submit", :value => "&#0187;"}
+  %li.unanswered
+    =link_to h('Drift...'), unanswered_questions_path
+  %li.ask_question
+    =link_to h("Group thinking..."), new_question_path, :rel => 'nofollow'
+  %li.think
+    =link_to image_tag('/images/think/think_icon_transparent.png', :height => "18x", :width =>"24px"), domain_url
+
+

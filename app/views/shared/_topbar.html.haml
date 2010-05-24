@@ -26,14 +26,25 @@
                   =link_to h(group.name), domain_url(:custom => group.domain)
         |
     .entry
-      ="My People"
+      %ul.combobox
+        %li
+          =link_to t("My People"), settings_path
+          %ul
+            -current_user.following.each do |follower|
+              %li
+                = link_to gravatar(follower.email.to_s, :size => 16), user_path(follower)
+                //= link_to h(follower), user_path(follower)
+
       |
     .entry
-      =link_to t("layouts.application.settings"), settings_path
+      =link_to h("My Profile"), user_path(current_user)
+    .entry.editorflair
+      =link_to t("&#x270E;"), settings_path
+  
+      
       |
     .entry
       =link_to t("layouts.application.logout"), destroy_user_session_path
-      |
   -else
     -if AppConfig.is_shapadocom && !current_group.isolate
       .entry
@@ -47,9 +58,8 @@
       =link_to t("layouts.application.log_in"), new_user_session_path
       |
   .entry
-    #topbar-button
-      =link_to t("layouts.application.ask_question"), new_question_path, :rel => 'nofollow'
-  .entry
-    =image_tag('/images/think/think_icon_24.png', :height => "24px", :width =>"24px")
+    - form_tag search_path, :method => :get, :style => "margin-left: 4px; max-width: 10%; display: inline" do
+      = text_field_tag :q, params[:q], :id => "search-field"
+
 
 

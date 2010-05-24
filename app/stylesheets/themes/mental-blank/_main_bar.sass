@@ -18,8 +18,8 @@
 
 #main-bar ul
   list-style-type: none
-  line-height: 24px
-  height: 32px
+  line-height: 18px
+  height: 36px
 
 #main-bar ul li
   margin-top: 12px
@@ -56,13 +56,38 @@
       +rounded(8px, 8px, 0px, 0px)
 
   &.ask_question
+    margin: 6px 4px 6px 0px
+    +rounded(16px,16px,16px,16px)
+    a
+      color: white
+      font-weight: bold
+      font-size: 1.2em
+      text-shadow: none
+      //text-shadow: #333 -1px -1px 1px
+      background: orange //#d84c15
+      //border: 1px solid white
+      padding: 2px 20px
+      +rounded(8px,8px,8px,8px)
 
-    background: #d3a77c
-    width: 216px
-    float: right
+
+    a:hover
+      color: #111
+      text-decoration: none
+      text-shadow: none
+      //text-shadow: #111 1px 1px 1px
+      background: #d3a77c //#b37d3b
+    //background: #d3a77c
+    padding: 0
+    float: left
 
     &:hover
       background: #ffcc33
+    
+  &.think
+    margin: 12px 0 0 0
+    padding: 6px 2px 0px 2px
+    +rounded(8px,8px,8px,8px)
+    float: right
     
   &.search-form
     width: 224px
