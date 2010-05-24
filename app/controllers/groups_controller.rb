@@ -90,9 +90,9 @@ class GroupsController < ApplicationController
     @group.owner = current_user
     @group.state = "active"
 
-    @group.widgets << TagCloudWidget.create(:position => 0)
-    @group.widgets << TopUsersWidget.create(:position => 1)
-    @group.widgets << BadgesWidget.create(:position => 2)
+    @group.widgets << TagCloudWidget.new
+    @group.widgets << TopUsersWidget.new
+    @group.widgets << BadgesWidget.new
 
     respond_to do |format|
       if @group.save
@@ -110,9 +110,9 @@ class GroupsController < ApplicationController
   # PUT /groups/1
   # PUT /groups/1.json
   def update
-    @group.safe_update(%w[name legend description default_tags subdomain logo forum
+    @group.safe_update(%w[name legend description default_tags subdomain logo logo_info forum
                           custom_favicon language theme reputation_rewards reputation_constrains
-                          has_adult_content registered_only openid_only custom_css wysiwyg_editor], params[:group])
+                          has_adult_content registered_only openid_only custom_css wysiwyg_editor fb_button], params[:group])
 
     @group.safe_update(%w[isolate domain private has_custom_analytics has_custom_html has_custom_js], params[:group]) #if current_user.admin?
     @group.safe_update(%w[analytics_id analytics_vendor], params[:group]) if @group.has_custom_analytics

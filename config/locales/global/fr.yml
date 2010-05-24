@@ -37,12 +37,15 @@ fr:
     by: par
     current: précédent
     previous: suivant
+    share: share
   feeds:
     question: souscrire à cette question
     questions: souscrire à toutes les questions
     tag: souscrite au tag
     user:  inscrivez-vous aux questions de l'utilisateur
     feed: Flux
+    post_new_questions: poster les nouvelles questions à
+    share_on_twitter: "twitter, facebook et plus..."
   languages:
     en:      anglais
     es:      espagnol
@@ -51,7 +54,7 @@ fr:
     pt:      portugais
     pt-PT:   portugais
     any:     any
-    user:    my preferred languages
+    user:    mes langues
   number:
     x_time:
       zero: "jamais"

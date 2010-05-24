@@ -18,7 +18,9 @@
     edit:
       title: configuración
       submit: guardar
+      enable_twitter: Habilita tus cuentas twitter y facebook
     show:
+      title: "Usuario {{user}}"
       follow: seguir
       unfollow: dejar de seguir
     follow:

@@ -38,11 +38,9 @@ Rails::Initializer.run do |config|
   config.gem "warden", :version => "0.10.3"
   config.gem "devise", :version => "1.0.5"
   config.gem "twitter-text", :version => "1.1.1"
-
-  if File.exist?(RAILS_ROOT+"/config/facebooker.yml")
-    config.gem "devise_facebook_connectable", :version => "0.1.9"
-    config.gem "facebooker", :version => "1.0.67"
-  end
+  config.gem "oauth2", :version => "0.0.8"
+  config.gem "twitter_oauth", :version => "0.3.6"
+  config.gem "sanitize", :version => "1.2.1"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
@@ -66,6 +64,6 @@ Rails::Initializer.run do |config|
   config.i18n.default_locale = :en
   config.action_controller.use_accept_header = false
   # middlewares
-  config.middleware.use "DynamicDomain", "shapado.com"
+  config.middleware.use "DynamicDomain"
 end
 

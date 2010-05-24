@@ -18,7 +18,9 @@ en:
     edit:
       title: settings
       submit: save
+      enable_twitter: Enable your facebook or twitter accounts
     show:
+      title: "User {{user}}"
       follow: follow
       unfollow: unfollow
     follow:

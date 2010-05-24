@@ -46,6 +46,8 @@ namespace :setup do
       default_group.add_member(admin, "owner")
     end
     default_group.logo = File.open(RAILS_ROOT+"/public/images/logo.png")
+    default_group.logo.extension = "png"
+    default_group.logo.content_type = "image/png"
     default_group.save
   end
 
@@ -53,9 +55,11 @@ namespace :setup do
   task :create_widgets => :environment do
     default_group = Group.find_by_domain(AppConfig.domain)
 
-    default_group.widgets << GroupsWidget.create(:position => 0)
-    default_group.widgets << UsersWidget.create(:position => 1)
-    default_group.widgets << BadgesWidget.create(:position => 2)
+    if AppConfig.enable_groups
+      default_group.widgets << GroupsWidget.new
+    end
+    default_group.widgets << UsersWidget.new
+    default_group.widgets << BadgesWidget.new
     default_group.save!
   end
 
