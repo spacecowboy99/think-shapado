@@ -184,26 +184,6 @@
     .clear
 
 -content_for :sidebar do
-  -if AppConfig.enable_sharing
-    .block
-      %h3
-        = t(".share")
-      .content
-        %ul.share
-          %li
-            = render :partial => "identica"
-          -if current_group.domain != AppConfig.domain
-            %li
-              = render :partial => "shapado"
-          %li
-            = render :partial => "twitter"
-          %li
-            = render :partial => "linkedin"
-          %li
-            = render :partial => "think"
-          %li
-            = render :partial => "facebook"
-      .clear
 
   -if AppConfig.enable_sharing
     .block
