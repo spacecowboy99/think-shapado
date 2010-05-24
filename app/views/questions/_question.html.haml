@@ -46,7 +46,9 @@
               = link_to h(tag), url_for(:controller => "questions", :action => "index", :tags => tag), :rel => "tag", :title => t("questions.tags.tooltip", :tag => tag)
 
       .owner-data
-        =render :partial => "users/user_mini", :locals => {:user => owner}
+        %span.gravatar        
+          = gravatar(owner.email.to_s, :size => 18)
+        =render :partial => "users/user_mini", :locals => {:user => owner, :with_badges => true}
         %strong.time_ago
           = link_to t("time.ago", :time => time_ago_in_words(last_target.updated_at)), question_path(question)+"##{last_target.id}"
         -if question.wiki
