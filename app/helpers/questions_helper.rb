@@ -32,7 +32,7 @@ module QuestionsHelper
           url = %@<iframe src="http://www.facebook.com/plugins/like.php?href=#{escape_url(question_path(question, :only_path =>false))}&amp;layout=button_count&amp;show_faces=true&amp;width=450&amp;action=like&amp;font&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>@
         else
           fb_url = "http://www.facebook.com/sharer.php?u=#{escape_url(question_path(question, :only_path =>false))}&t=#{question.title}"
-          url = %@#{image_tag('/images/share/facebook_32.png', :class => 'microblogging')} #{link_to("facebook", fb_url, :rel=>"nofollow external")}@
+          url = %@#{link_to(image_tag('/images/share/facebook_32.png', :class => 'microblogging'), fb_url, :rel=>"nofollow external")}@
         end
     end
     url

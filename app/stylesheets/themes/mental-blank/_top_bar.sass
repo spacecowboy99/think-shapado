@@ -1,7 +1,7 @@
 #top-bar-outer
   float: right
-  height: 40px
-  background: url(/images/think/github-bar-left.png) no-repeat left -75%
+  height: 28px
+  //background: url(/images/think/think-bar-left.png) no-repeat left -75%
   padding-left: 6px
 
 
@@ -22,24 +22,36 @@
       display: inline
       margin-bottom: -5px
     .reputation
-      background: cyan
+      background: #2C5883
       font-weight: bold
       font-size: 10px
       color: #fff
       +rounded(4px,4px,4px,4px)
-      padding: 2px 4px
+      padding: 2px 3px
     #search-field
       width: 148px
       height: 18px
-      background: #FFF url(/images/think/think-search-icon.png) no-repeat right 50%
-      padding: 0px 8px
-      border: 1px inset #ccc
+      background: #4c82c4 //url(/images/think/think-search-icon.png) no-repeat right 50%
+      padding: 0px 8px 0px 0px
+      border: 1px inset #4c82c4
       +rounded(2px,2px,2px,2px)
-    #top-bar-button
+    #topbar-button
       a
-        background: orange
-        border: 1px solid white
+        color: white
+        font-weight: bold
+        font-size: 1.3em
+        text-shadow: none
+        //text-shadow: #111 1px 1px 1px
+        background: orange //#d84c15
+        //border: 1px solid white
+        padding: 4px 20px
         +rounded(4px,4px,4px,4px)
+      a:hover
+        color: #111
+        text-decoration: none
+        text-shadow: none
+        //text-shadow: #111 1px 1px 1px
+        background: #d3a77c //#b37d3b
        
   padding: 0
   margin: 0
