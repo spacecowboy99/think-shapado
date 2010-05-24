@@ -16,6 +16,7 @@
 -content_for :head do
   %meta{:name => "keywords", :content => clean_seo_keywords(@question.tags.dup, @question.title)}
   %meta{:name => "description", :content => question_body.gsub(/<\/?[^>]*>/, "")[0, 255] }
+  %link{:rel => "canonical", :href => question_url(@question) }
 
 -content_for :subtabs do
   %h1.navtitle.title.entry-title
@@ -68,8 +69,7 @@
       .user_data
         %span.asked_by
           = t('activerecord.attributes.question.asked_by')
-        %span.fn.nickname
-          = link_to h(@question.user.login), user_path(@question.user)
+        =render :partial => "users/user_mini", :locals => {:user => @question.user}
         %span.time_ago.published{:title => @question.created_at, :class => "relativetime"}
           = t("time.ago", :time => time_ago_in_words(@question.created_at))
           -if @question.wiki
@@ -88,15 +88,14 @@
         .user_data
           %span.asked_by
             = t('activerecord.attributes.question.updated_by')
-          %span.fn.nickname
-            = link_to h(@question.updated_by.login), user_path(@question.updated_by)
+          =render :partial => "users/user_mini", :locals => {:user => @question.updated_by}
           %span.time_ago.published{:title => @question.updated_at, :class => "relativetime"}
             = t("time.ago", :time => time_ago_in_words(@question.updated_at))
           %span.adr
             -if !@question.updated_by.hide_country
               %span.country-name
                 = t("global.from", :site => @question.updated_by.country_name)
-                = country_flag(@question.user.country_code, @question.updated_by.country_name)
+                = country_flag(@question.updated_by.country_code, @question.updated_by.country_name)
         .clear
   .controls
     .actions
@@ -158,7 +157,7 @@
 
     %ul
       %li.newest
-        = link_to t("questions.index.newest"), question_path(@question, :sort=>"newest", :anchor => "answers")
+        = link_to t("questions.index.newest"), question_path(@question, :sort=>"newest", :anchor => "answers"), :rel => "nofollow"
       %li.votes
         = link_to t("questions.index.votes"), question_path(@question, :sort=>"votes", :anchor => "answers"), :rel => "nofollow"
       %li.oldest
@@ -185,6 +184,26 @@
     .clear
 
 -content_for :sidebar do
+  -if AppConfig.enable_sharing
+    .block
+      %h3
+        = t(".share")
+      .content
+        %ul.share
+          %li
+            = render :partial => "identica"
+          -if current_group.domain != AppConfig.domain
+            %li
+              = render :partial => "shapado"
+          %li
+            = render :partial => "twitter"
+          %li
+            = render :partial => "linkedin"
+          %li
+            = render :partial => "think"
+          %li
+            = render :partial => "facebook"
+      .clear
 
   -if AppConfig.enable_sharing
     .block

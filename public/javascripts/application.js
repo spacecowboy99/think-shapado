@@ -48,6 +48,7 @@ $(document).ready(function() {
         } else {
           showMessage(data.message, "error")
           if(data.status == "unauthenticate") {
+            window.onbeforeunload = null;
             window.location="/users/login"
           }
         }
@@ -58,7 +59,7 @@ $(document).ready(function() {
   });
 
   $("a#hide_announcement").click(function() {
-    $("#announcement").hide();
+    $("#announcement").fadeOut();
     $.post($(this).attr("href"), "format=js");
     return false;
   });
@@ -72,6 +73,7 @@ $(document).ready(function() {
   initStorageMethods();
   fillTextareas();
 
+  $(".highlight_for_user").effect("highlight", {}, 2000);
 })
 
 function initAutocomplete(){
@@ -99,11 +101,11 @@ $(window).load(function() {
   prettyPrint();
 });
 
-function showMessage(message, t) {
+function showMessage(message, t, delay) {
   $("#notifyBar").remove();
   $.notifyBar({
     html: "<div class='message "+t+"' style='width: 100%; height: 100%; padding: 5px'>"+message+"</div>",
-    delay: 3000,
+    delay: delay||3000,
     animationSpeed: "normal",
     barClass: "flash"
   });
@@ -135,7 +137,11 @@ function setupWysiwygEditor() {
 }
 
 function hasStorage(){
-  return window.localStorage;
+  if (window.localStorage && typeof(Storage)!='undefined'){
+    return true;
+  } else {
+      return false;
+  }
 }
 
 function initStorageMethods(){

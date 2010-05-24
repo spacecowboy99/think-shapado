@@ -16,11 +16,13 @@ en:
       votes_tooltip:  Thoughts with the most votes
       newest_tooltip: The most recent thoughts
     show:
+
       answers: Insights
       another_answers: more insights
       solution: Meaningful
       share: "Share this thought on"
       related_questions: Related thoughts
+
       flags: reported as
       flag: Flag
       flagged_as: Flagged as

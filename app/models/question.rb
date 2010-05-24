@@ -53,6 +53,8 @@ class Question
 
   key :last_target_type, String
   key :last_target_id, String
+  key :last_target_date, Time
+
   belongs_to :last_target, :polymorphic => true
 
   has_many :answers, :dependent => :destroy
@@ -101,9 +103,13 @@ class Question
     Question.paginate(opts.merge(:_keywords => {:$in => question.tags}, :_id => {:$ne => question.id}))
   end
 
-  def viewed!
-    self.collection.update({:_id => self._id}, {:$inc => {:views_count => 1}},
-                                              :upsert => true)
+  def viewed!(ip)
+    view_count_id = "#{self.id}-#{ip}"
+    if ViewsCount.find(view_count_id).nil?
+      ViewsCount.create(:_id => view_count_id)
+      self.collection.update({:_id => self._id}, {:$inc => {:views_count => 1}},
+                                                :upsert => true)
+    end
   end
 
   def answer_added!
@@ -264,7 +270,8 @@ class Question
   def self.update_last_target(question_id, target)
     self.collection.update({:_id => question_id},
                            {:$set => {:last_target_id => target.id,
-                                      :last_target_type => target.class.to_s}},
+                                      :last_target_type => target.class.to_s,
+                                      :last_target_date => target.updated_at.utc}},
                            :upsert => true)
   end
 

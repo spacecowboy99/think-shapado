@@ -112,16 +112,17 @@ module ApplicationHelper
   end
 
   def markdown(txt, options = {})
+    txt = RDiscount.new(render_page_links(txt.to_s, options), :smart).to_html
     if options[:sanitize] != false
-      txt = sanitize(txt.to_s, :tags => %w[b h1 h2 h3 i img sup sub strong br hr ul li ol em table tr td pre code blockquote a span font strike s div u span], :attributes => %w[href src title alt style border])
+      txt = Sanitize.clean(txt, SANITIZE_CONFIG)
     end
-
-    RDiscount.new(render_page_links(txt, options), :smart).to_html
+    txt
   end
 
   def render_page_links(text, options = {})
     group = options[:group]
     group = current_group if group.nil?
+    in_controller = respond_to?(:logged_in?)
 
     text.gsub!(/\[\[([^\,\[\'\"]+)\]\]/) do |m|
       link = $1.split("|", 2)
@@ -135,14 +136,25 @@ module ApplicationHelper
       end
     end
 
+    return text if !in_controller
+
     text.gsub(/%(\S+)%/) do |m|
       case $1
         when 'site'
-          current_group.domain
+          group.domain
         when 'site_name'
-          current_group.name
+          group.name
         when 'current_user'
-          current_user.login
+          if logged_in?
+            link_to(current_user.login, user_path(current_user))
+          else
+            "anonymous"
+          end
+        when 'hottest_today'
+          question = Question.first(:activity_at.gt => Time.zone.now.yesterday, :order => "hotness desc, views_count asc", :group_id => group.id, :select => [:slug, :title])
+          if question.present?
+            link_to(question.title, question_path(question))
+          end
         else
           m
       end

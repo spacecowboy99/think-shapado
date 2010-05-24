@@ -21,8 +21,12 @@ en:
       languages: Languages
       moderate: Moderate
       manage_ads: manage ads
-      home: Home
-      subscribe: Join the Thinkers
+
+      home: home
+      subscribe: subscribe
+      welcome_from: welcome! you can
+      now: now!
+
       openid:
         explaination: "if you'd like to register or just log in, please select your openid provider:"
     manage:

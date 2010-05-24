@@ -65,18 +65,20 @@ d'obtenir une réponse et non une discussion sans fin. Éssayer d'être clair et
 
   key :has_custom_html, Boolean, :default => true
   key :has_custom_js, Boolean, :default => true
-  key :footer, String
+  key :fb_button, Boolean, :default => true
 
-  key :head_tag, String
+  key :logo_info, Hash, :default => {"width" => 215, "height" => 60}
 
   file_key :logo, :max_length => 2.megabytes
   file_key :custom_css, :max_length => 256.kilobytes
   file_key :custom_favicon, :max_length => 256.kilobytes
 
   slug_key :name, :unique => true
+  filterable_keys :name
 
   has_many :ads, :dependent => :destroy
-  has_many :widgets, :dependent => :destroy, :order => "position asc", :polymorphic => true
+  has_many :widgets, :class_name => "Widget"
+
   has_many :badges, :dependent => :destroy
   has_many :questions, :dependent => :destroy
   has_many :answers, :dependent => :destroy
@@ -88,7 +90,7 @@ d'obtenir une réponse et non une discussion sans fin. Éssayer d'être clair et
   has_many :comments, :as => "commentable", :order => "created_at asc", :dependent => :destroy
 
   validates_length_of       :name,           :within => 3..40
-  validates_length_of       :description,    :within => 3..1000, :allow_blank => true
+  validates_length_of       :description,    :within => 3..10000, :allow_blank => true
   validates_length_of       :legend,         :maximum => 50
   validates_length_of       :default_tags,   :within => 0..15,
       :message =>  I18n.t('activerecord.models.default_tags_message')
@@ -125,7 +127,7 @@ d'obtenir une réponse et non une discussion sans fin. Éssayer d'être clair et
   def disallow_javascript
     unless self.has_custom_js
        %w[footer _head _question_help _question_prompt head_tag].each do |key|
-         value = self[key]
+         value = self.custom_html[key]
          if value.kind_of?(Hash)
            value.each do |k,v|
              value[k] = v.gsub(/<*.?script.*?>/, "")
@@ -133,21 +135,33 @@ d'obtenir une réponse et non une discussion sans fin. Éssayer d'être clair et
          elsif value.kind_of?(String)
            value = value.gsub(/<*.?script.*?>/, "")
          end
-         self[key] = value
+         self.custom_html[key] = value
        end
     end
   end
 
   def question_prompt
-    self._question_prompt[I18n.locale.to_s.split("-").first] || ""
+    self.custom_html.question_prompt[I18n.locale.to_s.split("-").first] || ""
   end
 
   def question_help
-    self._question_help[I18n.locale.to_s.split("-").first] || ""
+    self.custom_html.question_help[I18n.locale.to_s.split("-").first] || ""
   end
 
   def head
-    self._head[I18n.locale.to_s.split("-").first] || ""
+    self.custom_html.head[I18n.locale.to_s.split("-").first] || ""
+  end
+
+  def head_tag
+    self.custom_html.head_tag
+  end
+
+  def footer
+    self.custom_html.footer
+  end
+
+  def tag_list
+    TagList.first(:group_id => self.id) || TagList.create(:group_id => self.id)
   end
 
   def default_tags=(c)
@@ -190,6 +204,7 @@ d'obtenir une réponse et non une discussion sans fin. Éssayer d'être clair et
   def users(conditions = {})
     User.paginate(conditions.merge("membership_list.#{self.id}.reputation" => {:$exists => true}))
   end
+  alias_method :members, :users
 
   def pending?
     state == "pending"

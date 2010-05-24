@@ -16,9 +16,13 @@ en:
       title: Sign up as a new user
       submit: Sign up
     edit:
+
       title: Profile
       submit: Save Profile
+      enable_twitter: Enable your facebook or twitter accounts
+
     show:
+      title: "User {{user}}"
       follow: follow
       unfollow: unfollow
     follow:
