@@ -1,0 +1,81 @@
+//Dark Blue: #2C5883 Dark Blue Inverted: #d3a77c
+//Main Blue: #4c82c4 Main Blue Inverted: #b37d3b
+//High Blue: #27B3EA High Blue Inverted: #d84c15
+
+#main-bar
+  float: right
+
+  #logo
+    float: left
+    padding: 0
+    margin: 0
+    position: absolute	
+    
+    .group_logo
+      line-height: 0
+      bottom: 0px
+
+
+#main-bar ul
+  list-style-type: none
+  line-height: 24px
+  height: 48px
+
+#main-bar ul li
+  margin-top: 16px
+  line-height: 24px
+  background: #2C5883
+  margin-right: 5px
+  color: #F8F0E6
+  float: left
+  +rounded(8px, 8px, 0px, 0px)
+
+  &:hover
+    background: #27B3EA
+    color: #fff
+
+  &.active
+    border-top: 1px solid #fff
+    background-color: #FF9900 !important
+    color: #333
+    +rounded(8px, 8px, 0px, 0px)
+    a
+      &:link, &:visited, &:hover, &:active
+        color: #364b69
+        +rounded(8px, 8px, 0px, 0px)
+
+  a
+    display: block
+    //font-size: 14px
+    font-weight: bold
+    padding: 2px 8px
+
+    &:link, &:visited, &:hover, &:active
+      text-decoration: none
+      color: #FFF
+      +rounded(8px, 8px, 0px, 0px)
+
+  &.ask_question
+
+    background: #d3a77c
+    width: 216px
+    float: right
+
+    &:hover
+      background: #ffcc33
+    
+  &.search-form
+    width: 224px
+    height: 28px
+    background: #2C5883
+    +rounded(4px,4px,4px,4px)
+    margin: 16px 0 0 0
+    &.search-field
+
+#search-field
+  width: 108px
+  height: 18px
+  background: #4c82c4 url(/images/think/think-search-icon.png) no-repeat right 50%
+  padding: 0px 8px
+  border: 1px inset #ccc
+  +rounded(2px,2px,2px,2px)
