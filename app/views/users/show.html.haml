@@ -4,13 +4,6 @@
     &= @user.login
 
 #users_show
-  .follow-info
-    -if current_user != @user
-      -if logged_in? && current_user.following?(@user)
-        =link_to "- #{t(".unfollow")}", unfollow_user_path(@user), :class => "unfollow_link", 'data-class' => "follow_link", 'data-title' => t(".follow"), 'data-undo' => follow_user_path(@user)
-      -else
-        =link_to "+ #{t(".follow")}", follow_user_path(@user), :class => "follow_link", 'data-class' => "unfollow_link", 'data-title' => t(".unfollow"), 'data-undo' => unfollow_user_path(@user)
-      .clear
 
   -if current_user == @user
     %span
@@ -120,6 +113,13 @@
     .clear
 
 -content_for :sidebar do
+  .follow-info
+    -if current_user != @user
+      -if logged_in? && current_user.following?(@user)
+        =link_to "- #{t(".unfollow")}", unfollow_user_path(@user), :class => "unfollow_link", 'data-class' => "follow_link", 'data-title' => t(".follow"), 'data-undo' => follow_user_path(@user)
+      -else
+        =link_to "+ #{t(".follow")}", follow_user_path(@user), :class => "follow_link", 'data-class' => "unfollow_link", 'data-title' => t(".unfollow"), 'data-undo' => unfollow_user_path(@user)
+      .clear
   .block.stats
     .entry
       .text
