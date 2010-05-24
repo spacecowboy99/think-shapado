@@ -19,10 +19,10 @@
 #main-bar ul
   list-style-type: none
   line-height: 24px
-  height: 48px
+  height: 32px
 
 #main-bar ul li
-  margin-top: 16px
+  margin-top: 12px
   line-height: 24px
   background: #2C5883
   margin-right: 5px
@@ -67,7 +67,7 @@
   &.search-form
     width: 224px
     height: 28px
-    background: #2C5883
+    background: transparent
     +rounded(4px,4px,4px,4px)
     margin: 16px 0 0 0
     &.search-field
@@ -75,7 +75,12 @@
 #search-field
   width: 108px
   height: 18px
-  background: #4c82c4 url(/images/think/think-search-icon.png) no-repeat right 50%
+  background: #dcdcdc url(/images/think/think-search-icon.png) no-repeat right 50%
   padding: 0px 8px
   border: 1px inset #ccc
   +rounded(2px,2px,2px,2px)
+
+#search-submit
+  width: 18px
+  height: 18px
+  border: 1px outset #ccc

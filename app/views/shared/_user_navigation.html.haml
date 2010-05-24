@@ -15,4 +15,4 @@
     .search-field
       - form_tag search_path, :method => :get, :style => "margin-left: 20px; max-width: 10%; display: inline" do
         = text_field_tag :q, params[:q], :id => "search-field"
-        %input{:type => "submit", :style => "width:20px; height:20px;padding:0;background:blue;", :value => "&#0187;"}
+        %input{:type => "submit", :id => "search-submit", :value => "&#0187;"}
