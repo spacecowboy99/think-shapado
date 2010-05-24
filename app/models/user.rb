@@ -3,7 +3,7 @@ require 'digest/sha1'
 class User
   include MongoMapper::Document
   devise :authenticatable, :http_authenticatable, :recoverable, :registarable, :rememberable,
-         :lockable, :token_authenticatable, :facebook_connectable
+         :lockable, :token_authenticatable
 
   ROLES = %w[user moderator admin]
   LANGUAGE_FILTERS = %w[any user] + AVAILABLE_LANGUAGES
@@ -42,6 +42,16 @@ class User
 
   key :membership_list,           MembershipList
 
+  key :facebook_id,               String
+  key :facebook_token,            String
+  key :facebook_profile,          String
+
+  key :twitter_token,             String
+  key :twitter_secret,            String
+  key :twitter_login,             String
+
+  key :feed_token,                String
+
   has_many :questions, :dependent => :destroy
   has_many :answers, :dependent => :destroy
   has_many :comments, :dependent => :destroy
@@ -54,6 +64,7 @@ class User
   belongs_to :friend_list, :dependent => :destroy
 
   before_create :create_friend_list
+  before_create :generate_uuid
 
   timestamps!
 
@@ -149,7 +160,7 @@ class User
 
   def update_language_filter(filter)
     if LANGUAGE_FILTERS.include? filter
-      User.set({:_id => self.id}, {:language_filter => filter}  )
+      User.set({:_id => self.id}, {:language_filter => filter})
       true
     else
       false
@@ -206,7 +217,7 @@ Time.zone.now ? 1 : 0)
   end
 
   def role_on(group)
-    config_for(group).role
+    config_for(group, false).role
   end
 
   def owner_of?(group)
@@ -215,6 +226,14 @@ Time.zone.now ? 1 : 0)
 
   def mod_of?(group)
     owner_of?(group) || role_on(group) == "moderator" || self.reputation_on(group) >= group.reputation_constrains["moderate"].to_i
+  end
+
+  def editor_of?(group)
+    if c = config_for(group, false)
+      c.is_editor
+    else
+      false
+    end
   end
 
   def user_of?(group)
@@ -226,7 +245,7 @@ Time.zone.now ? 1 : 0)
   end
 
   def openid_login?
-    !identity_url.blank? || (AppConfig.enable_facebook_auth && !facebook_uid.blank?)
+    !identity_url.blank? || (AppConfig.enable_facebook_auth && !facebook_id.blank?)
   end
 
   def has_voted?(voteable)
@@ -310,12 +329,20 @@ Time.zone.now ? 1 : 0)
   def update_reputation(key, group)
     value = group.reputation_rewards[key.to_s].to_i
     value = key if key.kind_of?(Integer)
-
     Rails.logger.info "#{self.login} received #{value} points of karma by #{key} on #{group.name}"
+    current_reputation = config_for(group).reputation
 
     if value
       collection.update({:_id => self.id}, {:$inc => {"membership_list.#{group.id}.reputation" => value}}, {:upsert => true})
     end
+
+    stats = self.reputation_stats(group, { :select => [:_id] })
+    stats.save if stats.new?
+
+    event = ReputationEvent.new(:time => Time.now, :event => key,
+                                :reputation => current_reputation,
+                                :delta => value )
+    ReputationStat.collection.update({:_id => stats.id}, {:$addToSet => {:events => event.attributes}})
   end
 
   def localize(ip)
@@ -329,12 +356,17 @@ Time.zone.now ? 1 : 0)
   end
 
   def reputation_on(group)
-    config_for(group).reputation.to_i
+    config_for(group, false).reputation.to_i
   end
 
   def stats(*extra_fields)
     fields = [:_id]
     UserStat.find_or_create_by_user_id(self._id, :select => fields+extra_fields)
+  end
+
+  def badges_count_on(group)
+    config = config_for(group)
+    [config.bronze_badges_count, config.silver_badges_count, config.gold_badges_count]
   end
 
   def badges_on(group, opts = {})
@@ -403,43 +435,38 @@ Time.zone.now ? 1 : 0)
     super(method, *args, &block)
   end
 
-  def config_for(group)
+  def config_for(group, init = true)
     if group.kind_of?(Group)
       group = group.id
     end
-    self.membership_list[group] ||= Membership.new(:group_id => group)
+
+    config = self.membership_list[group]
+    if config.nil?
+      if init
+        config = self.membership_list[group] = Membership.new(:group_id => group)
+      else
+        config = Membership.new(:group_id => group)
+      end
+    end
+    config
   end
 
-  def before_facebook_connect(fb_session)
-    fb_session.user.populate(:locale, :username, :name, :first_name, :last_name,
-                              :birthday_date, :email)
-
-    self.language = case fb_session.user.locale.to_s
-    when /^es/
-      'es-AR'
-    when /^fr/
-      'fr'
-    when /^pt/
-      'pt-PT'
-    else
-      'en'
+  def reputation_stats(group, options = {})
+    if group.kind_of?(Group)
+      group = group.id
     end
-
-    self.timezone = fb_session.user.current_location.try(:city)
-
-    self.login = fb_session.user.username || fb_session.user.name
-    self.email = fb_session.user.email
-
-    self.name  = fb_session.user.name
-    self.birthday  = fb_session.user.birthday_date.try(:to_date)
-
-    self.location       = fb_session.user.hometown_location.try(:city)
-
-    self.save
+    default_options = { :user_id => self.id,
+                        :group_id => group}
+    stats = ReputationStat.first(default_options.merge(options)) ||
+            ReputationStat.new(default_options)
   end
 
   def has_flagged?(flaggeable)
     flaggeable.flags.first(:user_id=>self.id)
+  end
+
+  def generate_uuid
+    self.feed_token = UUIDTools::UUID.random_create.hexdigest
   end
 
   protected

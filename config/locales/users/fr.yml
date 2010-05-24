@@ -18,7 +18,9 @@ fr:
     edit:
       title: configuration
       submit: sauver
+      enable_twitter: Activer vos comptes facebook ou twitter
     show:
+      title: "User {{user}}"
       follow: suivre
       unfollow: ne plus suivre
     follow:
@@ -31,8 +33,8 @@ fr:
       new_answer_notification: obtenir des notifications via email de nouvelles réponses
       give_advice_notification:  recevoir des notifications via courrier électronique sur les questions liées à votre champs d'expertise
       activities_notification: recevoir des notifications via courrier électronique sur les activités système telles que les insignes gagnées, les nouveaux suiveurs, etc.
-      reports_notification: receive a report with latest group activity (only for group admins)
-      avatar_tip: "changer votre l'image de votre profil en utilisant gravatar"
+      reports_notification: recevoir un rapport avec les dernières activités du groupes (juste pour l'admin du groupe)
+      avatar_tip: "changer l'image de votre profil en utilisant gravatar"
     create:
       flash_notice: "merci de vous avoir enregistrer!"
       flash_error:  "désolé, nous n'avons pas pu configurer votre compte. Éssayer encore s'il vous plait, ou contacter un administrateur, le lien es ci-dessus."

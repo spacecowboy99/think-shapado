@@ -11,9 +11,9 @@
 
   %ul{:style => "display: inline"}
     %li.activity
-      = link_to t("questions.index.active"), root_path(:tab=>"activity"), :title => t("questions.index.active_tooltip")
+      = link_to t("questions.index.active"), root_path(:tab=>"activity"), :title => t("questions.index.active_tooltip"), :rel => "nofollow"
     %li.hot
-      = link_to t("questions.index.hot"), root_path(:tab=>"hot"), :title => t("questions.index.hot_tooltip")
+      = link_to t("questions.index.hot"), root_path(:tab=>"hot"), :title => t("questions.index.hot_tooltip"), :rel => "nofollow"
 
 %div
   #quick_question
@@ -59,8 +59,6 @@
     = render :partial => "questions/question", :object => question
 
 #additional_info
-  =will_paginate @questions
-
   #help_us
     = t("questions.index.help_to_answer")
     = link_to t("questions.index.unanswered_questions"), unanswered_questions_path
@@ -71,7 +69,7 @@
   .block.notice
     = render :partial => "shared/layout/notice"
 
-  -current_group.widgets.all(:order => "position asc", :_type.in => Widget.types).each do |widget|
+  -current_group.widgets.each do |widget|
     .widget.block{:id => widget.name}
       = render :partial => widget.partial_name, :locals => {:widget => widget}
 

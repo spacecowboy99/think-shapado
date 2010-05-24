@@ -44,6 +44,9 @@ class Group
   key :custom_html, CustomHtml, :default => CustomHtml.new
   key :has_custom_html, Boolean, :default => true
   key :has_custom_js, Boolean, :default => true
+  key :fb_button, Boolean, :default => true
+
+  key :logo_info, Hash, :default => {"width" => 215, "height" => 60}
 
   file_key :logo, :max_length => 2.megabytes
   file_key :custom_css, :max_length => 256.kilobytes
@@ -53,7 +56,8 @@ class Group
   filterable_keys :name
 
   has_many :ads, :dependent => :destroy
-  has_many :widgets, :dependent => :destroy, :order => "position asc", :polymorphic => true
+  has_many :widgets, :class_name => "Widget"
+
   has_many :badges, :dependent => :destroy
   has_many :questions, :dependent => :destroy
   has_many :answers, :dependent => :destroy
@@ -65,7 +69,7 @@ class Group
   has_many :comments, :as => "commentable", :order => "created_at asc", :dependent => :destroy
 
   validates_length_of       :name,           :within => 3..40
-  validates_length_of       :description,    :within => 3..1000, :allow_blank => true
+  validates_length_of       :description,    :within => 3..10000, :allow_blank => true
   validates_length_of       :legend,         :maximum => 50
   validates_length_of       :default_tags,   :within => 0..15,
       :message =>  I18n.t('activerecord.models.default_tags_message')
@@ -133,6 +137,10 @@ class Group
 
   def footer
     self.custom_html.footer
+  end
+
+  def tag_list
+    TagList.first(:group_id => self.id) || TagList.create(:group_id => self.id)
   end
 
   def default_tags=(c)
