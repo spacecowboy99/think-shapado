@@ -3,11 +3,10 @@
   #footer_container
     =current_group.footer
 -else
-  #cc.center
+  .left
     = image_tag('/images/ccby.png')
-    == All Shapado.com content and data are available under the #{link_to 'Creative Commons Attribution 3.0 license', 'http://creativecommons.org/licenses/by/3.0/'}
-
-
+    == All http://think.it content and data are available under the #{link_to 'Creative Commons Attribution 3.0 license', 'http://creativecommons.org/licenses/by/3.0/'}<br/>
+    == By using this site you agree to release your written work and intellectual property into the public domain under the license above
 
 -unless current_group.isolate || current_group.private
   #default_footer.left

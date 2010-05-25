@@ -10,6 +10,7 @@ en:
       users: Users
       badges: Carrots
       groups: Groups
+      friends: My Friends
       unanswered: Drifters
       logout: Logout
       logged: Logged in as {{login}}
