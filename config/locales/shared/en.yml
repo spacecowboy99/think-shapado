@@ -3,7 +3,7 @@ en:
     topbar:
       logged_as: "logged in as {{login}}"
       admin: &#x2747;
-      user_page: My profile
+      user_page: My Profile
     current_tags:
       title: Selected tags
     layout:
