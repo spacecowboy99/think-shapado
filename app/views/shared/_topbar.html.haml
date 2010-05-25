@@ -9,12 +9,14 @@
         =link_to t("layouts.application.moderate"), moderate_path, :class => "moderate_link"
         |
     .entry
-      %ul.combobox
-        %li
-          = gravatar(current_user.email.to_s, :size => 18)
-          = link_to(h(current_user.login), user_path(current_user), :style => "font-weight:bold;")
-          %span.reputation{:title => t("activerecord.attributes.user.reputation")}=format_number(current_user.reputation_on(current_group))
-        |
+      = gravatar(current_user.email.to_s, :size => 18)
+      = link_to(h(current_user.login), user_path(current_user))
+      %span.reputation{:title => t("activerecord.attributes.user.reputation")}=format_number(current_user.reputation_on(current_group))
+
+      // This will eventually show both global and local reputation        
+      //%span.reputation-local{:title => t("activerecord.attributes.user.reputation")}=format_number(current_user.reputation_on(current_group))
+
+      |
     -if !current_group.isolate && AppConfig.enable_groups
       .entry
         %ul.combobox
@@ -26,22 +28,11 @@
                   =link_to h(group.name), domain_url(:custom => group.domain)
         |
     .entry
-      %ul.combobox
-        %li
-          =link_to t("My People"), settings_path
-          %ul
-            -current_user.following.each do |follower|
-              %li
-                = link_to gravatar(follower.email.to_s, :size => 16), user_path(follower)
-                //= link_to h(follower), user_path(follower)
-
+      =link_to t("layouts.application.settings"), settings_path
+      =link_to t(".user_page"), user_path(current_user)
       |
     .entry
-      =link_to h("My Profile"), user_path(current_user)
-    .entry.editorflair
-      =link_to t("&#x270E;"), settings_path
-  
-      
+      =link_to t("layouts.application.friends"), friends_path
       |
     .entry
       =link_to t("layouts.application.logout"), destroy_user_session_path
@@ -58,8 +49,9 @@
       =link_to t("layouts.application.log_in"), new_user_session_path
       |
   .entry
-    - form_tag search_path, :method => :get, :style => "margin-left: 4px; max-width: 10%; display: inline" do
+    - form_tag search_path, :method => :get, :style => "margin-left: 20px; max-width: 10%; display: inline" do
       = text_field_tag :q, params[:q], :id => "search-field"
+.clear
 
 
 

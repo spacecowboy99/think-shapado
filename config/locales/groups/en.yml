@@ -1,7 +1,7 @@
 en:
   groups:
     index:
-      title: Groups
+      title: my groups
       filter: "search for groups"
       actives: Active
       pendings: Pending
