@@ -1,7 +1,7 @@
 en:
   groups:
     index:
-      title: groups
+      title: my groups
       filter: "search for groups"
       actives: active
       pendings: pending
@@ -36,8 +36,8 @@ en:
       access: Access Settings
   activerecord:
     models:
-      groups: groups
-      group: group
+      groups: my groups
+      group: my group
       default_tags_message: "you can't have more than 10 default tags"
     attributes:
       group:

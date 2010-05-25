@@ -8,6 +8,7 @@ en:
       ask_question: ask question
       tags: tags
       users: users
+      friends: my friends
       badges: badges
       unanswered: unanswered
       pages: pages
@@ -17,9 +18,9 @@ en:
       forgot: forgot?
       log_in: login
       signup: signup
-      settings: settings
+      settings: &#x270E;
       languages: languages
-      moderate: moderate
+      moderate: &#x273F;
       manage_ads: manage ads
       home: home
       subscribe: subscribe

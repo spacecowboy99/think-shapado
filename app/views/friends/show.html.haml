@@ -1,0 +1,32 @@
+
+-content_for :subtabs do
+  .navtitle
+    &= t("layouts.application.friends")
+
+#users_show 
+
+  -if @user.following.count > 0
+    %h2.title
+      You are following
+      .counter
+        = number_with_delimiter(@user.following.count)
+
+    .friend_list
+      -@user.following.each do |follower|
+        %span
+          = link_to gravatar(follower.email.to_s, :size => 24), user_path(follower)
+  -if @user.followers.count > 0
+    %h2.title
+      Your followers
+      .counter
+        = number_with_delimiter(@user.followers.count)
+    .friend_list
+      -@user.followers.each do |follower|
+        %span
+          =link_to gravatar(follower.email.to_s, :size => 24), user_path(follower)
+
+
+
+
+-content_for :sidebar do
+  =h('Sidebar Empty')

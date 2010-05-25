@@ -104,6 +104,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.search '/search.:format', :controller => "searches", :action => "index"
   map.about '/about', :controller => "groups", :action => "show"
+  map.friends '/friends', :controller => "friends", :action => "show"
   map.root :controller => "welcome"
 
   map.connect ':controller/:action/:id'
