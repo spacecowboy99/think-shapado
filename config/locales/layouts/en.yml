@@ -2,14 +2,15 @@ en:
   layouts:
     application:
       title: "What do you think..?"
-      questions: Thoughts
+      questions: Thinks
       questions_in: Thoughts about
       questions_tagged: tagged with
       ask_question: Share a thought...
+      group_thoughts: Thoughts&#8314;
       tags: Tags
-      users: Users
+      users: Peeps
       badges: Carrots
-      groups: Groups
+      groups: Groups&#8314;
       friends: My Friends
       unanswered: Drifters
       logout: Logout
