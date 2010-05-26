@@ -1,21 +1,24 @@
 %ul
-  %li.questions
-    =link_to t("layouts.application.questions"), questions_path
   %li.unanswered
-    =link_to h('Links'), unanswered_questions_path
-  %li.tags
-    =link_to t("layouts.application.tags"), tags_questions_path
+    =link_to h('...'), unanswered_questions_path
+  %li.questions
+    =link_to h('Group Thoughts'), questions_path
   %li.users
-    =link_to t("layouts.application.users"), users_path
+    =link_to h('Groupies'), users_path
   %li.badges
-    =link_to t("layouts.application.badges"), badges_path
+    =link_to h('Medals'), badges_path
+
+  %li.unanswered
+    =link_to t("layouts.application.group_thoughts"), questions_path
+  //%li.tags
+  //=link_to t("layouts.application.tags"), tags_questions_path
+
+
   %li.groups
     =link_to t("layouts.application.groups"), groups_path
-  %li.unanswered
-    =link_to h('Drift...'), unanswered_questions_path
-  %li.ask_question
-    =link_to h("Group thinking..."), new_question_path, :rel => 'nofollow'
   %li.think
-    =link_to image_tag('/images/think/think_icon_transparent.png', :height => "18x", :width =>"24px"), domain_url
+    =link_to image_tag('http://thne.ws/brands/think/icon_transparent.png', :height => "18x", :width =>"18px"), domain_url
+  %li.ask_question
+    =link_to h("Share a thought..."), new_question_path, :rel => 'nofollow'
 
 
