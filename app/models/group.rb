@@ -65,9 +65,9 @@ d'obtenir une réponse et non une discussion sans fin. Éssayer d'être clair et
 
   key :has_custom_html, Boolean, :default => true
   key :has_custom_js, Boolean, :default => true
-  key :fb_button, Boolean, :default => true
+  key :fb_button, Boolean, :default => false
 
-  key :logo_info, Hash, :default => {"width" => 215, "height" => 60}
+  key :logo_info, Hash, :default => {"width" => 256, "height" => 72}
 
   file_key :logo, :max_length => 2.megabytes
   file_key :custom_css, :max_length => 256.kilobytes
