@@ -1,0 +1,22 @@
+<!--These styles are injected-->
+
+%style{:type => 'text/css'}
+  body { background: #{current_group.body_bg_colour};}
+  \#header-container { 
+  -if current_group.header_bg_colour?
+    background-color: #{current_group.header_bg_colour};
+  -if current_group.header_bg_image?
+    background-image:url(#{current_group.header_bg_image});
+    background-repeat:repeat-x;
+  }
+  \.search input{ background-color: #{current_group.header_accent_colour};}
+  \#top-bar .entry .reputation{ background-color: #{current_group.mainbar_bg};}
+  \#main-bar ul li strong { color: #{current_group.header_accent_colour};}
+  \#main-bar ul li.button a:link{ background-color: #{current_group.mainbar_bg};}
+  \#main-bar ul li.button a:visited{ background-color: #{current_group.mainbar_bg};}
+  \#main-bar ul li.button a:hover{ background-color: #{current_group.mainbar_bg_over};}
+  \#main-bar ul li.button a:active{ background-color: #{current_group.mainbar_bg_select};}
+
+<!--//-->
+
+
