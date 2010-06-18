@@ -22,27 +22,28 @@
   height: 36px
 
 #main-bar ul li
-  margin-top: 12px
+  margin-top: 6px
   line-height: 24px
   background: #2C5883
   margin-right: 5px
+  margin-bottom: 6px 
   color: #F8F0E6
   float: left
-  +rounded(8px, 8px, 0px, 0px)
+  +rounded(4px, 4px, 4px, 4px)
 
   &:hover
     background: #27B3EA
     color: #fff
 
   &.active
-    border-top: 1px solid #fff
+    
     background-color: #FF9900 !important
     color: #333
-    +rounded(8px, 8px, 0px, 0px)
+    +rounded(4px, 4px, 4px, 4px)
     a
       &:link, &:visited, &:hover, &:active
         color: #364b69
-        +rounded(8px, 8px, 0px, 0px)
+        +rounded(4px, 4px, 4px, 4px)
 
   a
     display: block
@@ -53,59 +54,60 @@
     &:link, &:visited, &:hover, &:active
       text-decoration: none
       color: #FFF
-      +rounded(8px, 8px, 0px, 0px)
+      +rounded(4px, 4px, 4px, 4px)
 
   &.ask_question
-    margin: 6px 4px 6px 0px
-    +rounded(16px,16px,16px,16px)
+    margin: 4px 0px 0px 0px
+    padding: 0 4px 8px 0	
+    //background: none
+    background: url(/images/think/share-thought-bg-out.png) no-repeat
+    float: right
+
     a
       color: white
       font-weight: bold
       font-size: 1.2em
-      text-shadow: none
-      //text-shadow: #333 -1px -1px 1px
-      background: orange //#d84c15
-      //border: 1px solid white
-      padding: 2px 20px
-      +rounded(8px,8px,8px,8px)
-
+      text-shadow: #111 0px 0px 2px
+      //background: url(/images/think/share-thought-bg-out.png) no-repeat
+      padding: 2px 24px
 
     a:hover
+      color: white
+      text-decoration: none
+      text-shadow: #111 0px 0px 3px
+      background: url(/images/think/share-thought-bg-out-over.png) no-repeat
+
+    &:hover
+      //background: #ffcc33
+    
+  &.think
+    margin: 4px 0px 0px 0px
+    //padding: 0 4px 8px 0	
+    background: url(/images/think/icon-bg-out.png) no-repeat
+    float: right
+    
+
+    a
+      margin: 0 8px 0 4px
+      color: white
+      font-weight: bold
+      font-size: 1.2em
+      text-shadow: none
+      text-shadow: #111 0px 0px 2px
+      padding: 4px 8px 2px 8px
+
+    a:hover
+
       color: #111
       text-decoration: none
       text-shadow: none
-      //text-shadow: #111 1px 1px 1px
-      background: #d3a77c //#b37d3b
-    //background: #d3a77c
-    padding: 0
-    float: left
+      background: url(/images/think/icon-bg-out-over.png) no-repeat
+      padding: 4px 8px 2px 8px
 
     &:hover
-      background: #ffcc33
-    
-  &.think
-    margin: 12px 0 0 0
-    padding: 6px 2px 0px 2px
-    +rounded(8px,8px,8px,8px)
-    float: right
-    
-  &.search-form
-    width: 224px
-    height: 28px
-    background: transparent
-    +rounded(4px,4px,4px,4px)
-    margin: 16px 0 0 0
-    &.search-field
+      //background: #ffcc33
 
-#search-field
-  width: 108px
-  height: 18px
-  background: #dcdcdc url(/images/think/think-search-icon.png) no-repeat right 50%
-  padding: 0px 8px
-  border: 1px inset #ccc
-  +rounded(2px,2px,2px,2px)
 
-#search-submit
-  width: 18px
-  height: 18px
-  border: 1px outset #ccc
+
+
+

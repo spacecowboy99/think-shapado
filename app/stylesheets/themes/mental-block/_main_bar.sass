@@ -22,27 +22,29 @@
   height: 36px
 
 #main-bar ul li
-  margin-top: 12px
+  margin-top: 6px
   line-height: 24px
+  height: 28px
   background: #2C5883
   margin-right: 5px
+  margin-bottom: 6px 
   color: #F8F0E6
   float: left
-  +rounded(8px, 8px, 0px, 0px)
+  +rounded(4px, 4px, 4px, 4px)
 
   &:hover
     background: #27B3EA
     color: #fff
 
   &.active
-    border-top: 1px solid #fff
+    
     background-color: #FF9900 !important
     color: #333
-    +rounded(8px, 8px, 0px, 0px)
+    +rounded(4px, 4px, 4px, 4px)
     a
       &:link, &:visited, &:hover, &:active
         color: #364b69
-        +rounded(8px, 8px, 0px, 0px)
+        +rounded(4px, 4px, 4px, 4px)
 
   a
     display: block
@@ -52,8 +54,8 @@
 
     &:link, &:visited, &:hover, &:active
       text-decoration: none
-      color: #FFF
-      +rounded(8px, 8px, 0px, 0px)
+      color: #FFcyanF
+      +rounded(4px, 4px, 4px, 4px)
 
   &.ask_question
     margin: 4px 0px 0px 0px
@@ -106,6 +108,19 @@
     &:hover
       //background: #ffcc33
 
+
+  &.search
+    //background-color: transparent
+    .tiny-search-form
+      width: 200px
+      .search-label
+        color: pink
+        float: left
+      .search-form
+        #search-field
+          float: right
+          width: 50px
+          border: 1px solid green
 
 
 

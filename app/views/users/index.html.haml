@@ -27,3 +27,15 @@
 #additional_info
   =will_paginate @users
   .clear
+
+
+-content_for :sidebar do
+  -if !current_group.isolate && AppConfig.enable_groups
+    .block{:style => "background: transparent"}
+      .content
+        = link_to t(".create_own_site"), new_group_path, :id => "create_own_site"
+
+
+
+
+

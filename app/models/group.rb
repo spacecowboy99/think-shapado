@@ -67,6 +67,17 @@ d'obtenir une réponse et non une discussion sans fin. Éssayer d'être clair et
   key :has_custom_js, Boolean, :default => true
   key :fb_button, Boolean, :default => false
 
+  key :body_bg_colour, String, :default => "gainsboro"
+  key :primary_colour, String, :default => "#ffffff"
+  key :secondary_colour, String, :default => "#ffffff"
+  key :header_bg_colour, String, :default => "gainsboro"
+  key :header_bg_image, String, :default => ""
+  key :header_accent_colour, String, :default => "gainsboro"
+  key :mainbar_bg, String, :default => "gray"
+  key :mainbar_bg_over, String, :default => "darkgray"
+  key :mainbar_bg_select, String, :default => "white"
+
+
   key :logo_info, Hash, :default => {"width" => 256, "height" => 72}
 
   file_key :logo, :max_length => 2.megabytes

@@ -66,6 +66,11 @@
   .clear
 
 -content_for :sidebar do
+  -if !current_group.isolate && AppConfig.enable_groups
+    .block{:style => "background: transparent"}
+      .content
+        = link_to t(".create_own_site"), new_group_path, :id => "create_own_site"
+
   .search-block
     = "search"
   .block.notice
@@ -80,7 +85,4 @@
   -if AppConfig.enable_i18n
     = render :partial => "shared/language_filter"
 
-  -if !current_group.isolate && AppConfig.enable_groups
-    .block{:style => "background: transparent"}
-      .content
-        = link_to t(".create_own_site"), new_group_path, :id => "create_own_site"
+

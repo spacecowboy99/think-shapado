@@ -1,34 +1,34 @@
 en:
   users:
     index:
-      title: all users
+      title: Group Memnbers
       empty: "this group doesn't have any members, participate to join this group."
-      filter: "search for users"
+      filter: "Search for members"
       reputation: Karma
       newest: Newest
       oldest: Oldest
-      name: name
-      reputation_tooltip: users sorted by higher karma
-      newest_tooltip: users who just joined
-      oldest_tooltip: users who were the first to join
-      name_tooltip: users sorted alphabetically
+      name: Name
+      reputation_tooltip: Members sorted by higher karma
+      newest_tooltip: Members who just joined
+      oldest_tooltip: Members who were the first to join
+      name_tooltip: Members sorted alphabetically
     new:
-      title: Sign up as a new user
+      title: Become a member!
       submit: Sign up
     edit:
 
       title: Profile
       submit: Save Profile
-      enable_twitter: Enable your facebook or twitter accounts
+      enable_twitter: Link with your Facebook or Twitter accounts
 
     show:
-      title: "User {{user}}"
+      title: "Member {{user}}"
       follow: follow
       unfollow: unfollow
     follow:
-      flash_notice: "The user {{user}} was added to your friends"
+      flash_notice: "The member {{user}} was added to your friends"
     unfollow:
-      flash_notice: "The user {{user}} was removed from your friends"
+      flash_notice: "The member {{user}} was removed from your friends"
     form:
       information: Update your personal information here
       notifications: notifications
