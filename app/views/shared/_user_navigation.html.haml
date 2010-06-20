@@ -9,17 +9,11 @@
     =link_to t("layouts.application.groups"), groups_path
   %li.button
     =link_to h('...'), unanswered_questions_path
-  %li.search
-    .tiny-search-form
-      .search-label
-        =h('Search')
-      .search-form
-        - form_tag search_path, :method => :get, :style => "border:0" do
-          = text_field_tag :q, params[:q], :id => "search-field", :title => "something"
+  %li.ask_question
+    =link_to h("Share a thought..."), new_question_path, :rel => 'nofollow'
 
-  /%li.think
+  //%li.think
   /=link_to image_tag('/images/think/icon_transparent.png', :height => "18x", :width =>"18px"), domain_url
-  /%li.ask_question
-  /=link_to h("Share a thought..."), new_question_path, :rel => 'nofollow'
+
 
 
