@@ -5,12 +5,13 @@ en:
       questions: Thinks
       questions_in: Thoughts about
       questions_tagged: tagged with
-      ask_question: Share a thought...
+      ask_question: share a thought...
       group_thoughts: <strong>group</strong>thoughts
       tags: Tags
       users: <strong>group</strong>members
-      badges: Carrots
+      badges: <strong>group</strong>badges
       groups: <strong>think</strong>groups
+      links: <strong>think</strong>links
       friends: My Friends
       unanswered: Drifters
       logout: Logout

@@ -4,6 +4,7 @@
 
 #main-bar
   float: right
+  height: 32px
 
   #logo
     float: left
@@ -18,23 +19,21 @@
 
 #main-bar ul
   list-style-type: none
-  line-height: 18px
-  height: 36px
+  line-height: 20px
+  height: 24px
 
 #main-bar ul li
-  margin-top: 6px
-  line-height: 24px
-  height: 28px
-  background: #2C5883
-  margin-right: 5px
-  margin-bottom: 6px 
+  //margin-top: 6px
+  //line-height: 24px
+  height: 26px
+  margin-left: 8px
+  //margin-bottom: 6px 
   color: #F8F0E6
   float: left
   +rounded(4px, 4px, 4px, 4px)
 
   &:hover
-    background: #27B3EA
-    color: #fff
+    //background: transparent
 
   &.active
     
@@ -54,60 +53,26 @@
 
     &:link, &:visited, &:hover, &:active
       text-decoration: none
-      color: #FFcyanF
+      color: #FFF
       +rounded(4px, 4px, 4px, 4px)
 
+    &:hover
+      //background: #ffcc33
+
   &.ask_question
-    margin: 4px 0px 0px 0px
-    padding: 0 4px 8px 0	
-    //background: none
-    background: url(/images/think/share-thought-bg-out.png) no-repeat
+    //margin: 4px 0px 0px 0px
+    //padding: 0 4px 8px 0	
+    background: #ffa000
+    //background: url(/images/think/share-thought-bg-out.png) no-repeat
     float: right
 
     a
-      color: white
-      font-weight: bold
-      font-size: 1.2em
-      text-shadow: #111 0px 0px 2px
-      //background: url(/images/think/share-thought-bg-out.png) no-repeat
       padding: 2px 24px
 
     a:hover
-      color: white
+      //color: black
       text-decoration: none
-      text-shadow: #111 0px 0px 3px
-      background: url(/images/think/share-thought-bg-out-over.png) no-repeat
-
-    &:hover
-      //background: #ffcc33
-    
-  &.think
-    margin: 4px 0px 0px 0px
-    //padding: 0 4px 8px 0	
-    background: url(/images/think/icon-bg-out.png) no-repeat
-    float: right
-    
-
-    a
-      margin: 0 8px 0 4px
-      color: white
-      font-weight: bold
-      font-size: 1.2em
-      text-shadow: none
-      text-shadow: #111 0px 0px 2px
-      padding: 4px 8px 2px 8px
-
-    a:hover
-
-      color: #111
-      text-decoration: none
-      text-shadow: none
-      background: url(/images/think/icon-bg-out-over.png) no-repeat
-      padding: 4px 8px 2px 8px
-
-    &:hover
-      //background: #ffcc33
-
+      //background: blue
 
   &.search
     //background-color: transparent

@@ -3,9 +3,14 @@
     %meta{:name => "keywords", :content => current_group.default_tags.join(", ")}
   %meta{:name => "description", :content => markdown(current_group.description).gsub(/<\/?[^>]*>/, "")[0, 255] }
 
+
+%div
+  #something
+    Welcome to Think, start thinking straight away or browse other groups and thoughts
+
 -content_for :subtabs do
   .navtitle
-    = t(".recent_questions", :default => "Recent Questions")
+    = h('What do you think...?')
     -if @questions
       == (#{@questions.total_entries})
 
@@ -14,6 +19,8 @@
       = link_to t("questions.index.active"), root_path(:tab=>"activity"), :title => t("questions.index.active_tooltip"), :rel => "nofollow"
     %li.hot
       = link_to t("questions.index.hot"), root_path(:tab=>"hot"), :title => t("questions.index.hot_tooltip"), :rel => "nofollow"
+
+
 
 %div
   #quick_question
@@ -62,7 +69,6 @@
   #help_us
     = t("questions.index.help_to_answer")
     = link_to t("questions.index.unanswered_questions"), unanswered_questions_path
-
   .clear
 
 -content_for :sidebar do
@@ -73,16 +79,18 @@
 
   .search-block
     = "search"
-  .block.notice
-    = render :partial => "shared/layout/notice"
 
-  -current_group.widgets.each do |widget|
-    .widget.block{:id => widget.name}
-      = render :partial => widget.partial_name, :locals => {:widget => widget}
+  -if !logged_in?
+    .block.notice
+      = render :partial => "shared/layout/notice"
 
-  -if logged_in?
-    = render :partial => "shared/preferred_tags"
-  -if AppConfig.enable_i18n
-    = render :partial => "shared/language_filter"
+  //-current_group.widgets.each do |widget|
+  //  .widget.block{:id => widget.name}
+  //    = render :partial => widget.partial_name, :locals => {:widget => widget}
+
+  //-if logged_in?
+  //  = render :partial => "shared/preferred_tags"
+  //-if AppConfig.enable_i18n
+  //  = render :partial => "shared/language_filter"
 
 

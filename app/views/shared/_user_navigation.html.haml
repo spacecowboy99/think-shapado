@@ -1,19 +1,20 @@
 %ul
-  %li.button
+  %li.thoughts
     =link_to t("layouts.application.group_thoughts"), questions_path
-  %li.button
+  %li.users
     =link_to t("layouts.application.users"), users_path
-  %li.button
+  %li.badges
     =link_to t("layouts.application.badges"), badges_path
-  %li.button
+  %li.groups
     =link_to t("layouts.application.groups"), groups_path
-  %li.button
+  %li.links
+    =link_to t("layouts.application.links"), groups_path
+  %li.unanswered_questions
     =link_to h('...'), unanswered_questions_path
   %li.ask_question
-    =link_to h("Share a thought..."), new_question_path, :rel => 'nofollow'
+    =link_to t("layouts.application.ask_question"), new_question_path, :rel => 'nofollow'
 
-  //%li.think
-  /=link_to image_tag('/images/think/icon_transparent.png', :height => "18x", :width =>"18px"), domain_url
+
 
 
 

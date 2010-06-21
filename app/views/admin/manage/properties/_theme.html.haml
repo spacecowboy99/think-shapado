@@ -1,64 +1,69 @@
 .group
-  On this page we use HEX colours, please remeber to prefix with a "#", delete contents for default colour
+  On this page we use HEX colours, please remember to prefix with a "#", delete contents for default colour, you can write custom CSS as well on the next page if required.
 
 .group
-  = f.label :theme, t(:theme, :scope => "activerecord.attributes.header", :default => "Body" ), :class => "label"
-  = h('Body')
-  = text_field_tag "group[body_bg_colour]",  @group.body_bg_colour
-  .swatch{:style => "background: #{current_group.body_bg_colour}"}
+  %div.label
+    = h('Colour Hierarchy')
+  %div.label-notes
+    = h('Most of the interface is defined using only three colours, try http://meyerweb.com/eric/tools/color-blend/')
+.group
+  = h('Primary One')
+  = text_field_tag "group[primary_1]",  @group.primary_1
+  = h('Used for button backgrounds (#2C5883)')
+  .swatch{:style => "background: #{current_group.primary_1}"}
 
 .group
-  = f.label :theme, t(:theme, :scope => "activerecord.attributes.header", :default => "Header" ), :class => "label"
-  = h('BG Colour')
+  = h('Primary Mid')
+  = text_field_tag "group[primary_mid]",  @group.primary_mid
+  = h('Header & Footer Container  (#4C82C4)')
+  .swatch{:style => "background: #{current_group.primary_mid}"}
+
+.group
+  = h('Primary Two')
+  = text_field_tag "group[primary_2]",  @group.primary_2
+  = h('Content container, bg for text fields, and hover state for buttons')
+  .swatch{:style => "background: #{current_group.primary_2}"}
+
+
+
+.clear
+
+.group
+  %div.label
+    = h('Colour Hierarchy')
+  = h('Header BG')
   = text_field_tag "group[header_bg_colour]",  @group.header_bg_colour
-  = h('Will create ribbon')
+  = h('This defaults to primary mid if left blank')
   .swatch{:style => "background: #{current_group.header_bg_colour}"}
 
 .group  
-  = h('BG Image')
+  = h('Header BG Image')
   = text_field_tag "group[header_bg_image]",  @group.header_bg_image
   = h('Just leave blank if you want the colour ')
   .swatch{:style => "background-image:url(#{current_group.header_bg_image})"}
 
 .group
-  = f.label :theme, t(:theme, :scope => "activerecord.attributes.header", :default => "Header Buttons" ), :class => "label"
-  = h('Header Accents')
-  = text_field_tag "group[header_accent_colour]",  @group.header_accent_colour
-  = h('Usually the same as the body bg colour, used for search field bg & tab highlights')
-  .swatch{:style => "background:#{current_group.header_accent_colour}"}
+  = h('Question Button')
+  = text_field_tag "group[ask_question_bg]",  @group.ask_question_bg
+  = h('The question button background, often a contrasting colour to primary ')
+  .swatch{:style => "background:#{current_group.ask_question_bg}"}
+
+
 
 .group
   = h('Main Bar')
   = text_field_tag "group[mainbar_bg]",  @group.mainbar_bg
-  = h('Usually the same as the primary')
+  = h('Usually the same as the primary 1')
   .swatch{:style => "background:#{current_group.mainbar_bg}"}
 
 .group
   = h('Main Bar Over')
   = text_field_tag "group[mainbar_bg_over]",  @group.mainbar_bg_over
-  = h('Usually the same as the secondary')
+  = h('Usually the same as the primary 2')
   .swatch{:style => "background:#{current_group.mainbar_bg_over}"}
 
-.group
-  = h('Main Bar Select')
-  = text_field_tag "group[mainbar_bg_select]",  @group.mainbar_bg_select
-  = h('Usually the same as the body bg colour')
-  .swatch{:style => "background:#{current_group.mainbar_bg_select}"}
 
 
-
-.group
-  = f.label :theme, t(:theme, :scope => "activerecord.attributes.primary_colours", :default => "Colours" ), :class => "label"
-  = h('Suasage')
-  = text_field_tag "group[primary_colour]",  @group.primary_colour
-  .swatch{:style => "background:#{current_group.primary_colour}"}
-
-
-
-.group
-  = h('Secondary')
-  = text_field_tag "group[secondary_colour]",  @group.secondary_colour
-  .swatch{:style => "background:#{current_group.secondary_colour}"}
 
 .group
   = f.label :theme, t(:theme, :scope => "activerecord.attributes.group", :default => "Theme" ), :class => "label"
