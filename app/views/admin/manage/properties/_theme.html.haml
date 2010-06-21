@@ -30,7 +30,7 @@
 
 .group
   %div.label
-    = h('Colour Hierarchy')
+    = h('Other bits and bobs')
   = h('Header BG')
   = text_field_tag "group[header_bg_colour]",  @group.header_bg_colour
   = h('This defaults to primary mid if left blank')
@@ -45,10 +45,14 @@
 .group
   = h('Question Button')
   = text_field_tag "group[ask_question_bg]",  @group.ask_question_bg
-  = h('The question button background, often a contrasting colour to primary ')
+  = h('The question button background, usually a contrasting colour to primary ')
   .swatch{:style => "background:#{current_group.ask_question_bg}"}
 
-
+.group
+  = h('Question Button Hover')
+  = text_field_tag "group[ask_question_bg_over]",  @group.ask_question_bg_over
+  = h('The question button hover, usually just knocked bak a bit ')
+  .swatch{:style => "background:#{current_group.ask_question_bg_over}"}
 
 .group
   = h('Main Bar')

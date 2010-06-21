@@ -74,15 +74,24 @@
 -content_for :sidebar do
   -if !current_group.isolate && AppConfig.enable_groups
     .block{:style => "background: transparent"}
-      .content
+      .create_group_button
         = link_to t(".create_own_site"), new_group_path, :id => "create_own_site"
-
-  .search-block
-    = "search"
 
   -if !logged_in?
     .block.notice
       = render :partial => "shared/layout/notice"
+
+  -if current_group.default_tags?
+    .block
+      %h3
+        = h('Group Interests')
+      .sidebar-block
+        %div.tag_list
+          -current_group.default_tags[0,10].each do |tag|
+            %div.tag
+              = link_to(tag, questions_url(:tags => tag))
+      .clear
+
 
   //-current_group.widgets.each do |widget|
   //  .widget.block{:id => widget.name}

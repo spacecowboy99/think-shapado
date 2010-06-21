@@ -1,7 +1,10 @@
-<!--These styles are injected-->
+<!--These styles are clumsily injected, to be replaced by sass variables-->
 
 %style{:type => 'text/css'}
   body { background: #{current_group.primary_mid};}
+  a {color: #{current_group.primary_1};}
+  a:hover {color: #{current_group.primary_mid};}
+  \#sidebar h3 { color: #{current_group.primary_1};}
   \#container { background: #{current_group.primary_2};}
   \#wrapper { background: #{current_group.primary_2};}
   \#header-container { 
@@ -10,12 +13,12 @@
   -if current_group.header_bg_image?
     background-image:url(#{current_group.header_bg_image});
     background-repeat:repeat-x;
-  -if !current_group.header_bg_colour?
+  -if !current_group.header_bg_colour? && !current_group.header_bg_image?
     background-color: #{current_group.primary_mid};
   }
   \#top-bar .entry #search-field{ background-color: #{current_group.primary_2};}
   \.search input{ background-color: #{current_group.header_accent_colour};}
-  \#top-bar .entry .reputation{ background-color: #{current_group.mainbar_bg};}
+  \#top-bar .entry .reputation{ background-color: #{current_group.primary_1};}
   \#main-bar ul li strong { color: #{current_group.primary_mid};}
   \#main-bar ul li {
   -if current_group.mainbar_bg?
@@ -24,13 +27,16 @@
     background-color: #{current_group.primary_1};
   }
   \#main-bar ul li:hover{ background-color: #{current_group.primary_2};}
+  \#main-bar ul li.ask_question{ background-color: #{current_group.ask_question_bg};}
+  \#main-bar ul li.ask_question:hover{ background-color: #{current_group.ask_question_bg_over};}
 
-
-  \.tag-list .tag a:link, .tag-list .tag a:active, .tag-list .tag a:visited { background-color: #{current_group.mainbar_bg};}
-  \.tag-list .tag a:hover{ background-color: #{current_group.mainbar_bg_over};}
+  \.tag-list .tag a:link, .tag-list .tag a:active, .tag-list .tag a:visited { background-color: #{current_group.primary_1};}
+  \.tag-list .tag a:hover{ background-color: #{current_group.primary_mid};}
   \.secondary_navigation ul li{ background-colour: #{current_group.primary_mid};}
   \.secondary_navigation ul li a:hover{ background: #{current_group.ask_question_bg};}
   \#footer_container{border-top:4px solid #{current_group.primary_1};}
+  \.create_group_button{ background-color: #{current_group.primary_mid};}
+  \.create_group_button:hover{ background-color: #{current_group.primary_1};}
 <!--//-->
 
 

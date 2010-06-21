@@ -18,7 +18,7 @@ class Group
   key :domain, String
   key :legend, String
   key :description, String
-  key :default_tags, Array
+  key :default_tags, Array, :default => ["this","that","the-other"]
   key :has_custom_ads, Boolean, :default => true
   key :state, String, :default => "pending" #pending, active, closed
   key :isolate, Boolean, :default => false
@@ -71,6 +71,7 @@ d'obtenir une réponse et non une discussion sans fin. Éssayer d'être clair et
   key :primary_2, String, :default => "#DDD"
   key :primary_mid, String, :default => "#888"
   key :ask_question_bg, String, :default => "#ffa000"
+  key :ask_question_bg_over, String, :default => "#DB902D"
   key :header_bg_colour, String, :default => ""
   key :header_bg_image, String, :default => ""
   key :mainbar_bg, String, :default => ""

@@ -1,7 +1,7 @@
 en:
   users:
     index:
-      title: Group Memnbers
+      title: Group Members
       empty: "this group doesn't have any members, participate to join this group."
       filter: "Search for members"
       reputation: Karma
@@ -12,6 +12,7 @@ en:
       newest_tooltip: Members who just joined
       oldest_tooltip: Members who were the first to join
       name_tooltip: Members sorted alphabetically
+      create_own_site: Create your own group for free!
     new:
       title: Become a member!
       submit: Sign up
