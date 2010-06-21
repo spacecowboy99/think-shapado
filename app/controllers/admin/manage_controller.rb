@@ -5,7 +5,9 @@ class Admin::ManageController < ApplicationController
   tabs :dashboard => :dashboard,
        :properties => :properties,
        :content => :content,
+       :logo => :logo,
        :theme => :theme,
+       :css => :css,
        :actions => :actions,
        :stats => :stats,
        :widgets => :widgets
@@ -13,7 +15,9 @@ class Admin::ManageController < ApplicationController
   subtabs :properties => [[:general, "general"],
                           [:rewards, "rewards"],
                           [:constrains, "constrains"],
+                          [:logo, "logo"],
                           [:theme, "theme"],
+                          [:css, "css"],
                           [:domain, "domain"]]
   subtabs :content => [[:question_prompt, "question_prompt"],
                        [:question_help, "question_help"],

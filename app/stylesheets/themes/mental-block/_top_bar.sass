@@ -1,6 +1,5 @@
 #top-bar-outer
   float: right
-  height: 32px
   //background: url(/images/think/think-bar-left.png) no-repeat left -75%
   padding-left: 6px
 
@@ -11,11 +10,11 @@
     margin-left: 4px
     a
       color: #eee
-      text-shadow: #2C5883 1px 1px 1px
+      //text-shadow: #2C5883 1px 1px 1px
     a:hover
       color: #111
       text-decoration: underline
-      text-shadow: #2C5883 1px 1px 1px
+      //text-shadow: #2C5883 1px 1px 1px
     .gravatar
       border: 1px solid #2C5883
       line-height: 20px
@@ -28,12 +27,20 @@
       color: #fff
       +rounded(4px,4px,4px,4px)
       padding: 2px 3px
+    .share-a-thought
+      width: 200px
+      font-weight: bold
+      background: black
+      padding-left: 8px
+      padding-right: 8px 
+      //text-shadow: #ff9900 0px 0px 0px
+      +rounded(4px,4px,4px,4px)
     #search-field
       width: 148px
       height: 18px
       background: #4c82c4 //url(/images/think/think-search-icon.png) no-repeat right 50%
       padding: 0px 8px 0px 0px
-      border: 1px inset #4c82c4
+      border: 0
       +rounded(2px,2px,2px,2px)
     #topbar-button
       a
@@ -43,7 +50,7 @@
         text-shadow: none
         //text-shadow: #111 1px 1px 1px
         background: orange //#d84c15
-        //border: 1px solid white
+        //border: 1px solid #eee
         padding: 4px 20px
         +rounded(4px,4px,4px,4px)
       a:hover
@@ -54,14 +61,14 @@
         background: #d3a77c //#b37d3b
        
   padding: 0
-  margin: 8px 0
+  margin: 4px 0
   height: 24px
   line-height: 24px
   font-weight: normal
   font-size: 0.9em
   float: right
   color: #fff
-  text-shadow: #2C5883 -1px -1px 0px
+  //text-shadow: #2C5883 -1px -1px 0px
   //background: url(/images/think/think-bar-right.png) no-repeat right -75%
   //+rounded(0px,0px,8px,8px)
   a

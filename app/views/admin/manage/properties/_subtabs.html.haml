@@ -6,8 +6,12 @@
       = link_to t("layouts.manage.general"), manage_properties_path(:tab => "general")
     %li.share
       = link_to t("global.share"), manage_properties_path(:tab => "share")
+    %li.logo
+      = link_to t("layouts.manage.logo"), manage_properties_path(:tab => "logo")
     %li.theme
       = link_to t("layouts.manage.theme"), manage_properties_path(:tab => "theme")
+    %li.css
+      = link_to t("layouts.manage.css"), manage_properties_path(:tab => "css")
     %li.constrains
       = link_to t("layouts.manage.constrains"), manage_properties_path(:tab => "constrains")
     %li.rewards

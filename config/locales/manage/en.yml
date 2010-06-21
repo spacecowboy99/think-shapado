@@ -22,8 +22,12 @@ en:
           title: Carrots
           reputation_rewards_subtitle: list of karma carrots
           reputation_rewards_description: this formula allows you to configure how users can gain (or lose) karma for a given action
+        logo:
+          title: set your group logo
         theme:
-          title: setup the group's theme
+          title: set your theme
+        css:
+          title: set your custom css
         domain:
           title: setup your domain
           description: "You can map your site so it can be accessed through your own custom domain, this is how you do it:"

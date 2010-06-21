@@ -1,9 +1,7 @@
 @import mixins
 
 =active_tab
-  background-color: white
-  color: #333
-  +rounded(8px, 8px, 0px, 0px)
+  //color: #333
 
 =active_subtab
   +rounded(4px, 4px, 4px, 4px)
@@ -11,10 +9,11 @@
   color: #eee
 
   &:hover
-    background: #ffcc33 !important
-    color: #333
+    opacity: 0.8
+    //background: #ffcc33 !important
+    //color: #333
 
   a, a:active, a:visited, a:link
-    color: #333
+    //color: #333
 
 @import navigation

@@ -24,7 +24,9 @@ ActionController::Routing::Routes.draw do |map|
   map.privacy '/privacy', :controller => 'doc', :action => 'privacy'
   map.resources :users, :member => { :change_preferred_tags => :any,
                                      :follow => :any, :unfollow => :any},
-                        :collection => {:autocomplete_for_user_login => :get}
+                        :collection => {:autocomplete_for_user_login => :get},
+                        :as => "members"
+  
   map.resource :session
   map.resources :ads
   map.resources :adsenses
@@ -97,7 +99,9 @@ ActionController::Routing::Routes.draw do |map|
                    :path_prefix => "/manage" do |manage|
     manage.properties '/properties', :action => 'properties'
     manage.content '/content', :action => 'content'
+    manage.logo '/logo', :action => 'logo'
     manage.theme '/theme', :action => 'theme'
+    manage.css '/css', :action => 'css'
     manage.actions '/actions', :action => 'actions'
     manage.stats '/stats', :action => 'stats'
     manage.reputation '/reputation', :action => 'reputation'

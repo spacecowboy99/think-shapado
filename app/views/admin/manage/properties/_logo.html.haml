@@ -1,0 +1,27 @@
+.group
+  something
+
+.group
+  = f.label :logo, t('logo', :scope => "activerecord.attributes.group"), :class => "label"
+  -unless @group.new?
+    = image_tag(logo_group_path(@group))
+  %br
+  = f.file_field :logo
+  .description
+    = t('.logo_legend')
+  = text_field_tag "group[logo_info][width]", @group.logo_info["width"] || 215
+  x
+  = text_field_tag "group[logo_info][height]", @group.logo_info["height"] || 60
+
+
+.group
+  = f.label :custom_favicon, "Favicon", :class => "label"
+  -if @group.has_custom_favicon?
+    = image_tag(favicon_group_path(@group))
+  -else
+    = image_tag("/favicon.ico")
+  = f.file_field :custom_favicon
+
+
+.group.navform
+  = f.submit t('scaffold.update')

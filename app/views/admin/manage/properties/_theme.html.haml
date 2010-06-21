@@ -1,32 +1,78 @@
 .group
-  = f.label :logo, t('logo', :scope => "activerecord.attributes.group"), :class => "label"
-  -unless @group.new?
-    = image_tag(logo_group_path(@group))
-  %br
-  = f.file_field :logo
-  .description
-    = t('.logo_legend')
-  = text_field_tag "group[logo_info][width]", @group.logo_info["width"] || 215
-  x
-  = text_field_tag "group[logo_info][height]", @group.logo_info["height"] || 60
+  On this page we use HEX colours, please remember to prefix with a "#", delete contents for default colour, you can write custom CSS as well on the next page if required.
 
 .group
-  = f.label :custom_favicon, "Favicon", :class => "label"
-  -if @group.has_custom_favicon?
-    = image_tag(favicon_group_path(@group))
-  -else
-    = image_tag("/favicon.ico")
-  = f.file_field :custom_favicon
+  %div.label
+    = h('Colour Hierarchy')
+  %div.label-notes
+    = h('Most of the interface is defined using only three colours, try http://meyerweb.com/eric/tools/color-blend/')
+.group
+  = h('Primary One')
+  = text_field_tag "group[primary_1]",  @group.primary_1
+  = h('Used for button backgrounds (#2C5883)')
+  .swatch{:style => "background: #{current_group.primary_1}"}
+
+.group
+  = h('Primary Mid')
+  = text_field_tag "group[primary_mid]",  @group.primary_mid
+  = h('Header & Footer Container  (#4C82C4)')
+  .swatch{:style => "background: #{current_group.primary_mid}"}
+
+.group
+  = h('Primary Two')
+  = text_field_tag "group[primary_2]",  @group.primary_2
+  = h('Content container, bg for text fields, and hover state for buttons')
+  .swatch{:style => "background: #{current_group.primary_2}"}
+
+
+
+.clear
+
+.group
+  %div.label
+    = h('Other bits and bobs')
+  = h('Header BG')
+  = text_field_tag "group[header_bg_colour]",  @group.header_bg_colour
+  = h('This defaults to primary mid if left blank')
+  .swatch{:style => "background: #{current_group.header_bg_colour}"}
+
+.group  
+  = h('Header BG Image')
+  = text_field_tag "group[header_bg_image]",  @group.header_bg_image
+  = h('Just leave blank if you want the colour ')
+  .swatch{:style => "background-image:url(#{current_group.header_bg_image})"}
+
+.group
+  = h('Question Button')
+  = text_field_tag "group[ask_question_bg]",  @group.ask_question_bg
+  = h('The question button background, usually a contrasting colour to primary ')
+  .swatch{:style => "background:#{current_group.ask_question_bg}"}
+
+.group
+  = h('Question Button Hover')
+  = text_field_tag "group[ask_question_bg_over]",  @group.ask_question_bg_over
+  = h('The question button hover, usually just knocked bak a bit ')
+  .swatch{:style => "background:#{current_group.ask_question_bg_over}"}
+
+.group
+  = h('Main Bar')
+  = text_field_tag "group[mainbar_bg]",  @group.mainbar_bg
+  = h('Usually the same as the primary 1')
+  .swatch{:style => "background:#{current_group.mainbar_bg}"}
+
+.group
+  = h('Main Bar Over')
+  = text_field_tag "group[mainbar_bg_over]",  @group.mainbar_bg_over
+  = h('Usually the same as the primary 2')
+  .swatch{:style => "background:#{current_group.mainbar_bg_over}"}
+
+
+
 
 .group
   = f.label :theme, t(:theme, :scope => "activerecord.attributes.group", :default => "Theme" ), :class => "label"
   = f.select :theme, AVAILABLE_THEMES, {}, :class => "choose_theme"
-
-.group
-  = f.label :custom_css, "Custom css", :class => "label"
-  -custom_css = ""
-  -@group.has_custom_css? ? custom_css = @group.custom_css.read : custom_css = ""
-  = f.text_area :custom_css, :value => custom_css, :class => "text_area"
+  = h('NB: Colours above will override colours in theme')
 
 .group.navform
   = f.submit t('scaffold.update')

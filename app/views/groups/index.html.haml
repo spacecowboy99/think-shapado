@@ -19,10 +19,7 @@
     %li.most_active
       = link_to t(".most_active"), groups_path(:tab=>"most_active")
 
--form_tag groups_path, :class => "form", :id => "filter_groups", :method => "get" do
-  = label_tag :q, t(".filter"), :class => "label"
-  = text_field_tag "q", params[:q], :class => "text_field filter_field"
-  = submit_tag("filter")
+
 
 %ul.items#groups
   = render :partial => "group", :collection => @groups
@@ -31,5 +28,15 @@
   =will_paginate @groups
   .clear
 
-= link_to t(".request_group"), new_group_path, :class => "request_group"
-.clear
+
+-content_for :sidebar do
+  -if !current_group.isolate && AppConfig.enable_groups
+    .block{:style => "background: transparent"}
+      .create_group_button
+        = link_to t("users.index.create_own_site"), new_group_path, :id => "create_own_site"
+
+  .block
+    -form_tag groups_path, :class => "form", :id => "filter_groups", :method => "get" do
+      = label_tag :q, t(".filter"), :class => "label"
+      = text_field_tag "q", params[:q], :class => "text_field filter_field"
+      = submit_tag("filter")

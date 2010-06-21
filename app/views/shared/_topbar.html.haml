@@ -9,8 +9,9 @@
         =link_to t("layouts.application.moderate"), moderate_path, :class => "moderate_link"
         |
     .entry
-      = gravatar(current_user.email.to_s, :size => 18)
-      = link_to(h(current_user.login), user_path(current_user))
+      = gravatar(current_user.email.to_s, :size => 16)
+      %strong
+        = link_to(h(current_user.login), user_path(current_user))
       %span.reputation{:title => t("activerecord.attributes.user.reputation")}=format_number(current_user.reputation_on(current_group))
 
       // This will eventually show both global and local reputation        
@@ -36,6 +37,7 @@
       |
     .entry
       =link_to t("layouts.application.logout"), destroy_user_session_path
+      |
   -else
     -if AppConfig.is_shapadocom && !current_group.isolate
       .entry
@@ -46,11 +48,16 @@
         =link
         |
     .entry
-      =link_to t("layouts.application.log_in"), new_user_session_path
+      %strong
+        =link_to t("layouts.application.log_in"), new_user_session_path
       |
   .entry
-    - form_tag search_path, :method => :get, :style => "margin-left: 20px; max-width: 10%; display: inline" do
+    Search: 
+    - form_tag search_path, :method => :get, :style => "max-width: 10%; display: inline" do
       = text_field_tag :q, params[:q], :id => "search-field"
+  .entry.think
+    =link_to image_tag('/images/think/think_icon_transparent.png', :height => "18x", :width =>"18px"), domain_url
+
 .clear
 
 

@@ -18,7 +18,7 @@ class Group
   key :domain, String
   key :legend, String
   key :description, String
-  key :default_tags, Array
+  key :default_tags, Array, :default => ["this","that","the-other"]
   key :has_custom_ads, Boolean, :default => true
   key :state, String, :default => "pending" #pending, active, closed
   key :isolate, Boolean, :default => false
@@ -65,9 +65,19 @@ d'obtenir une réponse et non une discussion sans fin. Éssayer d'être clair et
 
   key :has_custom_html, Boolean, :default => true
   key :has_custom_js, Boolean, :default => true
-  key :fb_button, Boolean, :default => true
+  key :fb_button, Boolean, :default => false
 
-  key :logo_info, Hash, :default => {"width" => 215, "height" => 60}
+  key :primary_1, String, :default => "#333"
+  key :primary_2, String, :default => "#DDD"
+  key :primary_mid, String, :default => "#888"
+  key :ask_question_bg, String, :default => "#ffa000"
+  key :ask_question_bg_over, String, :default => "#DB902D"
+  key :header_bg_colour, String, :default => ""
+  key :header_bg_image, String, :default => ""
+  key :mainbar_bg, String, :default => ""
+  key :mainbar_bg_over, String, :default => ""
+
+  key :logo_info, Hash, :default => {"width" => 256, "height" => 72}
 
   file_key :logo, :max_length => 2.megabytes
   file_key :custom_css, :max_length => 256.kilobytes
