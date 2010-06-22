@@ -18,8 +18,8 @@ class Group
   key :domain, String
   key :legend, String
   key :description, String
-  key :default_tags, Array, :default => ["this","that","the-other"]
-  key :has_custom_ads, Boolean, :default => true
+  key :default_tags, Array, :default => ["this","that","and-the-other"]
+  key :has_custom_ads, Boolean, :default => false
   key :state, String, :default => "pending" #pending, active, closed
   key :isolate, Boolean, :default => false
   key :private, Boolean, :default => false
