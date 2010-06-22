@@ -1,5 +1,6 @@
 
 %h2
+  = t('&#x262F; ')
   = t(".title")
 
 -form_for(@group, :html => {:class => "form", :multipart => true}) do |f|
@@ -9,3 +10,11 @@
     = f.submit  t("scaffold.create")
     = t("global.or")
     = link_to  t("scaffold.back"), groups_path, :class => "cancel button"
+
+-content_for :sidebar do
+  -if !current_group.question_help.empty?
+    .help
+      %h4
+        = t(".how_to_ask")
+      =t('&#x2620;')
+      =current_group.question_help
