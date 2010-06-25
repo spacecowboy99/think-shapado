@@ -1,0 +1,94 @@
+-title = h(question.title)
+-if question.closed
+  -title += " [#{t("closed", :scope => "activerecord.attributes.question").upcase}]"
+
+-if !local_assigns[:mini]
+  -owner = nil
+  -if question.last_target.present?
+    -last_target = question.last_target
+    -if last_target.respond_to?(:updated_by) && last_target.updated_by.present?
+      -owner= last_target.updated_by
+    -else
+      -owner= last_target.user
+  -else
+    -last_target = question
+    -owner = question.user
+
+%li.network_entry.item{:class => class_for_question(question)}
+  / Group
+  .group
+    .box.details{:style => "background:#{question.group.primary_mid}"}
+      = h("Group")
+      #br  
+      -if question.group.has_group_icon?
+        = image_tag(group_icon_group_path(question.group), :class => "group_icon", :width => "50px", :height => "50px")
+      -else
+        = image_tag("default_icon.png", :class => "group_icon", :width => "50px", :height => "50px")
+    .box.votes
+      .counter{:class => class_for_number(question.votes_average) }
+        =format_number(question.votes_average)
+      .text
+        =t(:votes, :scope => "activerecord.attributes.question")
+    .box.answers{:class => class_for_question(question), :title => question.accepted ? t(".accepted_tooltip") : "" }
+      .counter
+        =format_number(question.answers_count)
+      .text
+        =t(:answers, :scope => "activerecord.attributes.question")
+    /.box.views
+    /  .counter{:class => class_for_number(question.views_count) }
+    /    =format_number(question.views_count)
+    /  .text
+    /    =t(:views, :scope => "activerecord.attributes.question")
+    .group-voting
+      %ul
+        %li=t('Agree')
+        %li=t('No opinion')
+        %li=t('Disagree')
+   
+  / Question Summary
+  .summary
+
+    -cache("question_on_index_#{question.id}") do
+      /%h3
+      /  %a{:href => [domain_url(:custom => question.group.domain),question_path(question)],
+      /     :title => truncate(strip_tags(question.body), :length => 200)}
+      /    = title
+        
+      %h3
+        =link_to h(title), domain_url(:custom => question.group.domain, :controller => "questions", :action => "show", :id => question.to_param), :title => question.title
+      %p= truncate(question.body, 256, "more")
+
+      .tag-list
+        -if question.tags.empty? && logged_in? && (current_user.can_modify?(@question) || current_user.can_retag_others_questions_on?(question.group))
+          %span.retag
+            = link_to t('questions.show.retag'), retag_question_path(question), :id => 'retag', :class => "important"
+        -question.tags.each do |tag|
+          %span.tag{:class => "tag_#{h(tag)}"}
+            = link_to h(tag), domain_url(:custom => question.group.domain, :controller => "questions", :action => "index", :tags => tag), :rel => "tag", :title => t("questions.tags.tooltip", :tag => tag)
+
+
+
+
+  .databox
+    .owner
+      %span.gravatar        
+        = gravatar(owner.email.to_s, :size => 18)
+      =render :partial => "users/user_mini", :locals => {:user => owner, :with_badges => true}
+      %strong.time_ago
+        = link_to t("time.ago", :time => time_ago_in_words(last_target.updated_at)), question_path(question)+"##{last_target.id}"
+    .group
+      %span.group-data-label
+        = h('Group: ')
+      %span.name{:style=>"background;#{question.group.primary_1}"}       
+        = h(question.group.name)
+    .mode
+      = h('Mode: Thought ')
+      -if question.wiki
+        %span.wiki_flag
+          wiki
+    .flag
+      = link_to h("Report"), question_path(question)
+
+    .clear
+
+

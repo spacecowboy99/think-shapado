@@ -3,16 +3,33 @@
 
 .group
   = f.label :logo, t('logo', :scope => "activerecord.attributes.group"), :class => "label"
-  -unless @group.new?
-    = image_tag(logo_group_path(@group))
+  /-unless @group.new?
+  /  = image_tag(logo_group_path(@group))
+  -if current_group.has_logo?
+    = image_tag(logo_group_path(current_group), :class => "group_logo", :width => current_group.logo_info["width"], :height => current_group.logo_info["height"])
+  -else
+    = link_to image_tag("default_logo.png", :class => "group_logo"), domain_url(:custom => current_group.domain)
   %br
   = f.file_field :logo
   .description
     = t('.logo_legend')
   = text_field_tag "group[logo_info][width]", @group.logo_info["width"] || 215
   x
-  = text_field_tag "group[logo_info][height]", @group.logo_info["height"] || 60
+  = text_field_tag "group[logo_info][height]", @group.logo_info["height"], :disabled => true
 
+
+.group
+  = f.label :group_icon, "Group Icon", :class => "label"
+  /-unless @group.new?
+  /  = image_tag(group_icon_group_path(@group))
+  -if current_group.has_group_icon?
+    = image_tag(group_icon_group_path(current_group), :class => "group_icon", :width => "50px", :height => "50px")
+  -else
+    = image_tag("default_icon.png", :class => "group_icon", :width => "50px", :height => "50px")
+  %br
+  = f.file_field :group_icon
+  .description
+    = t('.icon_legend')
 
 .group
   = f.label :custom_favicon, "Favicon", :class => "label"

@@ -110,7 +110,7 @@ class GroupsController < ApplicationController
   # PUT /groups/1
   # PUT /groups/1.json
   def update
-    @group.safe_update(%w[name legend description default_tags subdomain logo logo_info forum custom_favicon language theme ask_question_bg ask_question_bg_over header_bg_colour header_bg_image mainbar_bg mainbar_bg_over primary_1 primary_2 primary_mid reputation_rewards reputation_constrains has_adult_content registered_only openid_only custom_css wysiwyg_editor fb_button], params[:group])
+    @group.safe_update(%w[name legend description default_tags subdomain logo logo_info forum custom_favicon group_icon language theme ask_question_bg ask_question_bg_over header_bg_colour header_bg_image mainbar_bg mainbar_bg_over primary_1 primary_2 primary_mid reputation_rewards reputation_constrains has_adult_content registered_only openid_only custom_css wysiwyg_editor fb_button], params[:group])
 
     @group.safe_update(%w[isolate domain private has_custom_analytics has_custom_html has_custom_js], params[:group]) #if current_user.admin?
     @group.safe_update(%w[analytics_id analytics_vendor], params[:group]) if @group.has_custom_analytics
@@ -167,6 +167,15 @@ class GroupsController < ApplicationController
     @group = Group.find_by_slug_or_id(params[:id], :select => [:file_list])
     if @group && @group.has_custom_css?
       send_data(@group.custom_css.read, :filename => "custom_theme.css", :type => "text/css")
+    else
+      render :text => ""
+    end
+  end
+
+  def group_icon
+    @group = Group.find_by_slug_or_id(params[:id], :select => [:file_list])
+    if @group && @group.has_group_icon?
+      send_data(@group.group_icon.try(:read), :filename => "group_icon.#{@group.logo.extension}", :type => @group.group_icon.content_type,  :disposition => 'inline')
     else
       render :text => ""
     end

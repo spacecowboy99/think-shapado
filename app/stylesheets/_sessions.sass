@@ -1,17 +1,35 @@
 #twitter-and-facebook
-  text-align: center
-  a#twitter_auth
-    margin-left: 20px
+
+#alt_login
+  background: white
+  border: 2px
+  +rounded(2px,2px,2px,2px)
 
 a#facebook_auth
   +fancy-button-structure
   +fancy-button-colors-matte(#4C6EA9)
   +fancy-button-size(15px, 6px, 1px)
   white-space: nowrap
+  padding: 8px
+  margin-bottom: 8px
+  width: 256px
+
 
 a#twitter_auth
   +fancy-button-structure
   +fancy-button-colors-matte(#A0E8EB)
   +fancy-button-size(15px, 6px, 1px)
   white-space: nowrap
+  padding: 8px
+  margin-bottom: 8px
+  width: 256px
+
+a#linked_auth
+  +fancy-button-structure
+  +fancy-button-colors-matte(#006699)
+  +fancy-button-size(15px, 6px, 1px)
+  white-space: nowrap
+  padding: 8px
+  margin-bottom: 8px
+  width: 256px
 

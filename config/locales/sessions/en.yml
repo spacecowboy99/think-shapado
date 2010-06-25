@@ -7,8 +7,9 @@ en:
       flash_notice: "you have been logged out."
     new:
       with_openid: log in with openid
-      with_facebook: "sign in with facebook"
-      with_twitter: "sign in with twitter"
+      with_facebook: "Login using Facebook"
+      with_twitter: "<img src=\"/images/share/twitter_32.png\" height=\"24px\" width=\"24px\" class=\"alt_login\" />Login using Twitter"
+      with_linked: "<img src=\"/images/share/linkedin_32.png\" height=\"24px\" width=\"24px\" class=\"alt_login\" /> Login using Linked In"
       with_authentication: log in with our authentication system
       registered: "already registered?"
       not_registered: "not registered yet?"
