@@ -21,8 +21,8 @@ en:
 
   activerecord:
     models:
-      answers: insights
-      answer: insight
+      answers: notes
+      answer: note
     attributes:
       answer:
         link: link

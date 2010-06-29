@@ -3,6 +3,7 @@ class Group
   include MongoMapperExt::Slugizer
   include MongoMapperExt::Storage
   include MongoMapperExt::Filter
+  include Support::Voteable
 
   timestamps!
 
