@@ -1,0 +1,245 @@
+ul.network_items
+  list-style-type: none
+  li.item
+    margin: 0 0 8px 0
+    padding: 8px
+    background-color: gainsboro
+    +rounded(8px,8px,8px,8px)
+
+    &:hover
+      //background: gainsboro
+
+    .user_details
+      //background: blue
+      width: 56px
+      float: left
+      .group-details
+
+        margin-bottom: 32px
+      .user-details
+        position: relative
+        padding: 8px
+        background: white
+        +rounded(8px,8px,8px,8px)
+
+
+
+    .summary_details
+      //background: cyan
+      width: 520px
+      margin-left: 8px
+      margin-right: 8px
+      float: left
+
+      .summary
+        width: 520px
+        min-height: 96px
+        clear: none
+        margin-bottom: 8px
+        //width: auto
+        //float: right
+        padding: 8px
+        background-color: white
+        +rounded(8px,8px,8px,8px)
+        a:link, a:active, a:visited
+          //color: #2A5FB3
+          //font-weight: bold
+        a:hover
+          //color: #F67620
+
+
+
+
+    .action_details
+      width: 112px
+      float: right
+
+
+    .vote-box
+      float: right
+      //background: white
+      padding: 8px
+      margin-bottom: 4px
+      +rounded(8px,8px,8px,8px)
+
+
+    .group
+      height: 18px
+      float: right
+      background: white
+      padding: 8px
+      margin-bottom: 4px
+      +rounded(8px,8px,8px,8px)
+      .button
+        padding-left: 8px
+        padding-right: 8px
+        +rounded(4px,4px,4px,4px)
+
+
+    .logo
+      float: left
+      padding: 0px 10px
+      margin-right: 4px
+
+    .box
+      float: left
+      height: 32px
+      padding: 4px
+      margin-right: 4px
+      text-align: center
+      vertical-align: baseline
+      display: block
+      font-size: 10px
+      font-weight: bold
+      font-family: sans-serif
+      color: white
+      background-color: white
+      +rounded(4px,4px,4px,4px)
+
+      .group_icon
+        margin-top: 4px
+        margin-bottom: 4px
+
+      .text
+        padding: 0px 0px 4px 0px
+        margin: 0px auto 4px auto
+
+      .counter
+        padding: 2px
+        font-size: 16px
+        font-weight: bold
+        &.medium_number
+          font-size: 20px
+          color: orange
+        &.big_number
+          padding: 1px
+          font-size: 17px
+          color: red
+        &.negative_number
+          font-size: 17px
+          color: #EE3746
+
+    .votes
+      color: #898989
+      //border: 1px solid #ccc
+    .answers
+      color: #2A61B3
+      &.accepted
+        color: #FFF
+        background: #c6c980
+      &.unanswered
+        color: #8d9300
+        //border: 1px solid #c6c980
+    .views
+      color: #898989
+      border: 1px solid #ccc
+
+    .stats
+      float: left
+      margin: 8px
+
+    .databox
+      clear: both
+      //background: red
+
+      .flag
+        padding: 4px 8px
+        +rounded(8px,8px,8px,8px)
+        float: left
+        color: red
+ 
+      .mode
+        padding: 4px 8px
+        margin-right: 4px
+        background: white
+        +rounded(8px,8px,8px,8px)    
+        float: left
+
+ 
+      .owner
+        float: left
+        padding: 4px 8px
+        margin-right: 4px
+
+        +rounded(8px,8px,8px,8px)
+        .time_ago
+          a
+            font-weight: normal
+            color: #111
+        .reputation
+          font-size: 100%
+          font-weight: bold
+          color: #666
+        .badgecount
+          font-weight: bold
+        .gravatar
+          float: left
+          margin-right: 2px
+      .group
+        float: left
+        padding: 4px 8px
+        margin-right: 4px
+        +rounded(8px,8px,8px,8px)
+        .name
+          font-weight: bold
+
+
+      h3
+        margin: 0.65em 0
+        font-size: 1.3em
+        font-weight: bold
+        a
+          &:active, &:link, &:visited
+            color: #14273B
+            font-weight: bold
+          &:hover
+            text-decoration: underline
+
+    .actions
+      padding: 5px
+      margin: 6px
+      background: #eee
+      a
+        margin: 2px 5px
+        font-size: 15px
+        font-weight: bold
+
+    .vote-up-form
+      display: inline
+      vertical-align: middle
+
+    &.lite
+      .box
+        width: 20px
+        height: 20px
+        padding: 2px
+        .counter
+          font-size: 18px
+          padding: 1px
+
+
+
+.group-voting
+  ul
+    margin-top: 8px
+    list-style-type: none
+    li
+      
+      color: white
+      font-size: 10px
+      font-weight: bold
+      width: 80px
+      padding: 2px
+      margin-bottom: 2px
+      +rounded(4px,4px,4px,4px)
+
+
+    li.agree
+      background: green
+   
+    li.no-opinion
+      background: orange
+
+    li.disagree
+      background: red
+

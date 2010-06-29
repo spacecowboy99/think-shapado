@@ -55,6 +55,7 @@
     Search: 
     - form_tag search_path, :method => :get, :style => "max-width: 10%; display: inline" do
       = text_field_tag :q, params[:q], :id => "search-field"
+      = submit_tag("?", :id => "search-submit")
   .entry.think
     =link_to image_tag('/images/think/think_transparent_icon_16.png', :height => "16x", :width =>"16px"), domain_url
 

@@ -3,22 +3,31 @@
   %head
     %title
       &= page_title
-    = current_group.head_tag
     = render :partial => "shared/layout/css"
+
+    = current_group.head_tag
     = render :partial => "shared/layout/meta"
+    <!--[if lt IE 8]><link type="text/css" rel="stylesheet" media="screen" href="/stylesheets/ie7.css"><![endif]-->
     = render :partial => "shared/layout/javascript"
+    = render :partial => "shared/layout/css"
+    = render :partial => "shared/layout/customcss"
 
   %body
     = render :partial => "shared/analytics"
-    #container
+
+    #header-container
       #header
-        #main-bar
-          #logo
-            -if current_group.has_logo?
-              =link_to image_tag(logo_group_path(current_group), :class => "group_logo", :width => current_group.logo_info["width"], :height => current_group.logo_info["height"]), domain_url(:custom => current_group.domain)
-            -else
-              = link_to image_tag("default_logo.png", :class => "group_logo"), domain_url(:custom => current_group.domain)
-          .clear
+        //= current_group.head
+        #logo
+          -if current_group.has_logo?
+            = link_to image_tag(logo_group_path(current_group), :class => "group_logo", :width => current_group.logo_info["width"], :height => current_group.logo_info["height"]), domain_url(:custom => current_group.domain)
+          -else
+            = link_to image_tag("default_logo.png", :class => "group_logo"), domain_url(:custom => current_group.domain)
+        #top-bar-outer
+          = render :partial => "shared/topbar"
+        #main-bar{:class => @active_tab}
+          = render :partial => "shared/user_navigation"
+    .clear
       #wrapper
         #main
           #block-text.block
@@ -28,3 +37,24 @@
               .inner
                 = yield
                 .clear
+
+
+
+
+    #footer_container
+      #footer
+        .block.content
+          = render :partial => "layouts/footer"
+    
+
+    <script type="text/javascript"> 
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script> 
+    <script type="text/javascript"> 
+    try {
+    var pageTracker = _gat._getTracker("UA-16339855-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script> 
+
+

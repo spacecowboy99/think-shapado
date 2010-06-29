@@ -17,6 +17,7 @@
     background-color: #{current_group.primary_mid};
   }
   \#top-bar .entry #search-field{ background-color: #{current_group.primary_2};}
+  \#top-bar .entry #search-submit{ background-color: #{current_group.primary_1}; border: 1px outset #{current_group.primary_mid};}
   \.search input{ background-color: #{current_group.header_accent_colour};}
   \#top-bar .entry .reputation{ background-color: #{current_group.primary_1};}
   \#top-bar .entry .gravatar{ border:1px solid #{current_group.primary_1};}
@@ -30,6 +31,14 @@
   \#main-bar ul li:hover{ background-color: #{current_group.primary_2};}
   \#main-bar ul li.ask_question{ background-color: #{current_group.ask_question_bg};}
   \#main-bar ul li.ask_question:hover{ background-color: #{current_group.ask_question_bg_over};}
+
+  \ul.network_items li.item{ background-color: #{current_group.primary_mid};}
+
+  \ul.network_items li.item .group{ background-color: #{current_group.primary_2};}
+  \ul.network_items li.item .owner{ background-color: #{current_group.primary_2};}
+  \ul.network_items li.item .group .button{ background-color: #{current_group.ask_question_bg};}
+
+  \ul.network_items li.item .vote-box{ background-color: #{current_group.primary_2};}
 
   \.tag-list .tag a:link, .tag-list .tag a:active, .tag-list .tag a:visited { background-color: #{current_group.primary_1};}
   \.tag-list .tag a:hover{ background-color: #{current_group.primary_mid};}

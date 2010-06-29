@@ -3,6 +3,7 @@ class Group
   include MongoMapperExt::Slugizer
   include MongoMapperExt::Storage
   include MongoMapperExt::Filter
+  include Support::Voteable
 
   timestamps!
 
@@ -79,9 +80,10 @@ d'obtenir une réponse et non une discussion sans fin. Éssayer d'être clair et
 
   key :logo_info, Hash, :default => {"width" => 256, "height" => 72}
 
-  file_key :logo, :max_length => 2.megabytes
+  file_key :logo, :max_length => 64.kilobytes
   file_key :custom_css, :max_length => 256.kilobytes
   file_key :custom_favicon, :max_length => 256.kilobytes
+  file_key :group_icon, :max_length => 256.kilobytes
 
   slug_key :name, :unique => true
   filterable_keys :name

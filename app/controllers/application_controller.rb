@@ -142,6 +142,15 @@ class ApplicationController < ActionController::Base
   end
   helper_method :scoped_conditions
 
+  def scoped_conditions_network(conditions = {})
+    unless current_tags.empty?
+      conditions.deep_merge!({:tags => {:$all => current_tags}})
+    end
+    conditions.deep_merge!({:group_id => current_group.id})
+    conditions.deep_merge!(language_conditions)
+  end
+  helper_method :scoped_conditions_network
+
   def available_locales; AVAILABLE_LOCALES; end
 
   def set_locale

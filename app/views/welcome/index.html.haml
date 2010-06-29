@@ -4,10 +4,6 @@
   %meta{:name => "description", :content => markdown(current_group.description).gsub(/<\/?[^>]*>/, "")[0, 255] }
 
 
-%div
-  #something
-    Welcome to Think, start thinking straight away or browse other groups and thoughts
-
 -content_for :subtabs do
   .navtitle
     = h('What do you think...?')
@@ -20,56 +16,27 @@
     %li.hot
       = link_to t("questions.index.hot"), root_path(:tab=>"hot"), :title => t("questions.index.hot_tooltip"), :rel => "nofollow"
 
+-if current_group.name == "think"
+  .something
+    All the latest thoughts from the entire network  
 
+-if current_group.name != "think"
+  .something
+    A list thoughts from the [think]groups network matching the default tags of the current group, if you just want to see this groups thoughts, click on the group thoughts tab above
 
-%div
-  #quick_question
-    -@question = Question.new
-    -form_for(@question, :url => questions_url, :html=>{:class => "form", :id => "ask_question"}) do |f|
-      -# TODO: refactor this
-      -lang = current_languages.kind_of?(Array) ? current_languages.first : current_languages
-      -lang = logged_in? ? current_user.language : lang
-      -lang = current_group.language ? current_group.language : lang
+-if current_group.name == "think"
+  %ul.network_items#questions
+    -@think_network.each do |question|
+      = render :partial => "questions/question_network", :locals => {:question => question}
 
-      %h3
-        %label.label
-          =current_group.question_prompt || t(".quick_question")
-      .columns
-        .column_info
-          -if logged_in?
-            -reputation = current_user.reputation_on(current_group)
-            .avatar
-              = gravatar(current_user.email.to_s, :size => 64)
-            .reputation{:class => class_for_number(reputation)}
-              = format_number(reputation)
-          -else
-            .avatar
-              = gravatar("", :size => 64)
-        .column_form
-          .group
-            .pointer
-            =f.text_area :title, :class => "text_area", :id => "question_title"
-          %span#tags.group
-            =t(:tags, :scope => "activerecord.attributes.question")
-            =f.text_field :tags, :class => "text_field autocomplete_for_tags"
-          = f.hidden_field :language, :value => lang
-          =f.submit t(".ask_question", :default => :"layouts.application.ask_question"), :class => "ask_question"
-      .clear
-  %ul.items#related_questions
-    %li
-%ul.items#questions
-  -if @questions.empty?
-    .box.highlight
-      %li
-        = t(".empty", :default => :"questions.index.empty")
+-if current_group.name != "think" && !current_group.isolate
+  %ul.network_items#questions
+    -@group_network.each do |question|
+      = render :partial => "questions/question_network", :locals => {:question => question}
+ 
+-if current_group.isolate?
   -@questions.each do |question|
     = render :partial => "questions/question", :object => question
-
-#additional_info
-  #help_us
-    = t("questions.index.help_to_answer")
-    = link_to t("questions.index.unanswered_questions"), unanswered_questions_path
-  .clear
 
 -content_for :sidebar do
   -if !current_group.isolate && AppConfig.enable_groups
@@ -81,17 +48,24 @@
     .block.notice
       = render :partial => "shared/layout/notice"
 
-  -if current_group.default_tags?
+  -if current_group.name != "think"
+    -if current_group.default_tags?
+      .block
+        %h3
+          = h('Group Interests')
+        .sidebar-block
+          %div.tag_list
+            -current_group.default_tags[0,10].each do |tag|
+              %div.tag
+                = link_to(tag, questions_url(:tags => tag))
+        .clear
+
+  -if current_group.name == "think"
     .block
       %h3
         = h('Group Interests')
-      .sidebar-block
-        %div.tag_list
-          -current_group.default_tags[0,10].each do |tag|
-            %div.tag
-              = link_to(tag, questions_url(:tags => tag))
-      .clear
-
+      %p
+        = h('Think shows everything - but groups only shows stuff that matches the group interests')
 
   //-current_group.widgets.each do |widget|
   //  .widget.block{:id => widget.name}

@@ -29,6 +29,14 @@ class WelcomeController < ApplicationController
                                    :page => params[:page] || 1,
                                    :fields => (Question.keys.keys - ["_keywords", "watchers"]),
                                    :order => order}.merge(conditions))
+
+    @group_network = Question.all(:tags => current_group.default_tags,
+                                  :order => order
+                                     #:_id.in => [GroupNetwork.group_ids]
+                                    )
+
+    @think_network = Question.all(:order => order)
+
   end
 
   def feedback

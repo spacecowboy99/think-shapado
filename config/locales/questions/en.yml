@@ -17,7 +17,7 @@ en:
       newest_tooltip: The most recent thoughts
     show:
 
-      answers: Insights
+      answers: Notes
       another_answers: more insights
       solution: Meaningful
       share: "Share this thought on"
@@ -47,8 +47,8 @@ en:
       retract_request: you have already made a request, would you line to retract it?
       close_reason: "the question has been closed for the following reason:"
       answers_title:
-        one: "{{count}} insight"
-        other: "{{count}} insights"
+        one: "{{count}} note"
+        other: "{{count}} notes"
     answer:
       pick_answer: Set as meaningful
       unset_answer: Unset as meaningful
@@ -131,7 +131,7 @@ en:
         body: I think...
         tags: Tags
         asked_by: Thought by
-        answers: Insights
+        answers: Notes
         views: Views
         votes: Votes
         language: Language

@@ -5,16 +5,16 @@ body {
 #openid {
   background: url(/javascripts/openid/img/indicator.gif) center center no-repeat;
   margin: 0 auto;
-  width: 440px;
-  height: 162px;
+  /*width: 440px;
+  height: 162px;*/
 }
 
 #openid_inputarea {
   clear: both;
   display: none;
   background: url(/javascripts/openid/img/balloon.png) no-repeat;
-  width: 410px;
-  height: 48px;
+  /* width: 410px;
+  height: 48px; */
   color: white;
   text-align: center;
   margin-top: 35px;

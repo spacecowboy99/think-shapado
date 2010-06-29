@@ -2,6 +2,9 @@ ActionController::Routing::Routes.draw do |map|
   map.oauth_authorize '/oauth/start', :controller => 'oauth', :action => 'start'
   map.oauth_callback '/oauth/callback', :controller => 'oauth', :action => 'callback'
 
+  map.linked_authorize '/linked/start', :controller => 'linked', :action => 'start'
+  map.linked_callback '/linked/callback', :controller => 'linked', :action => 'callback'
+
   map.twitter_authorize '/twitter/start', :controller => 'twitter', :action => 'start'
   map.twitter_callback '/twitter/callback', :controller => 'twitter', :action => 'callback'
   map.twitter_share '/twitter/share', :controller => 'twitter', :action => 'share'
@@ -83,6 +86,7 @@ ActionController::Routing::Routes.draw do |map|
                                      :allow_custom_ads => :get,
                                      :disallow_custom_ads => :get,
                                      :logo => :get,
+                                     :group_icon => :get,
                                      :favicon => :get,
                                      :css => :get},
                           :collection => { :autocomplete_for_group_slug => :get}
