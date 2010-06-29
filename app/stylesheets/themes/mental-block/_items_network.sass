@@ -13,6 +13,16 @@ ul.network_items
       //background: blue
       width: 56px
       float: left
+      .group-details
+
+        margin-bottom: 32px
+      .user-details
+        position: relative
+        padding: 8px
+        background: white
+        +rounded(8px,8px,8px,8px)
+
+
 
     .summary_details
       //background: cyan
@@ -45,16 +55,25 @@ ul.network_items
       float: right
 
 
+    .vote-box
+      float: right
+      //background: white
+      padding: 8px
+      margin-bottom: 4px
+      +rounded(8px,8px,8px,8px)
+
+
     .group
+      height: 18px
       float: right
       background: white
       padding: 8px
       margin-bottom: 4px
       +rounded(8px,8px,8px,8px)
-      img
-        height: 24px
-        width: 24px
-        border: 1px solid white
+      .button
+        padding-left: 8px
+        padding-right: 8px
+        +rounded(4px,4px,4px,4px)
 
 
     .logo
@@ -87,7 +106,7 @@ ul.network_items
 
       .counter
         padding: 2px
-        font-size: 18px
+        font-size: 16px
         font-weight: bold
         &.medium_number
           font-size: 20px
@@ -141,7 +160,7 @@ ul.network_items
         float: left
         padding: 4px 8px
         margin-right: 4px
-        background: white
+
         +rounded(8px,8px,8px,8px)
         .time_ago
           a
@@ -202,6 +221,7 @@ ul.network_items
 
 .group-voting
   ul
+    margin-top: 8px
     list-style-type: none
     li
       

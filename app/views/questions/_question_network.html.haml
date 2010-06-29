@@ -16,13 +16,17 @@
 
 %li.network_entry.item{:class => class_for_question(question)}
   .user_details
-    .box.details{:style => "background:#{question.group.primary_mid}"}
-      = h("Group")
-      #br  
-      -if question.group.has_group_icon?
-        = image_tag(group_icon_group_path(question.group), :class => "group_icon", :width => "32px", :height => "32px")
-      -else
-        = image_tag("/images/default_icon.png", :class => "group_icon", :width => "32px", :height => "32px")
+    //.group-details{:style => "background:#{question.group.primary_mid}"}
+    //= h("Group")
+    //#br  
+    //-if question.group.has_group_icon?
+    //= image_tag(group_icon_group_path(question.group), :class => "group_icon", :width => "32px", :height => "32px")
+    //-else
+    //= image_tag("/images/default_icon.png", :class => "group_icon", :width => "32px", :height => "32px")
+    .user-details{:style => "background:white"}
+      //= link_to h(owner.login), user_path(owner)
+      //#br
+      = gravatar(owner.email.to_s, :size => 32)
 
 
   .summary_details
@@ -43,19 +47,17 @@
 
     .databox
       .owner
-        %span.gravatar        
-          = gravatar(owner.email.to_s, :size => 18)
         =render :partial => "users/user_mini", :locals => {:user => owner, :with_badges => true}
         %strong.time_ago
           = link_to t("time.ago", :time => time_ago_in_words(last_target.updated_at)), question_path(question)+"##{last_target.id}"
       .group
         %span.group-data-label
           = h('Group: ')
-        %span.tag 
+        %span.button 
           = h(question.group.name)
       .group
         = h('Mode:')
-        %span.tag
+        %span.button
           = h('Thought')
           -if question.wiki
             %span.wiki_flag
@@ -65,18 +67,18 @@
 
   .action_details
     / Group
-    /.group
-    /  .box.votes
-    /    .counter{:class => class_for_number(question.votes_average) }
-    /      =format_number(question.votes_average)
-    /    .text
-    /      =t(:votes, :scope => "activerecord.attributes.question")
-    /  .box.answers{:class => class_for_question(question), :title => question.accepted ? t(".accepted_tooltip") : "" }
-    /    .counter
-    /      =format_number(question.answers_count)
-    /    .text
-    /      =t(:answers, :scope => "activerecord.attributes.question")
-    .group
+    .vote-box
+      .box.votes
+        .counter{:class => class_for_number(question.votes_average) }
+          =format_number(question.votes_average)
+        .text
+          =t(:votes, :scope => "activerecord.attributes.question")
+      .box.answers{:class => class_for_question(question), :title => question.accepted ? t(".accepted_tooltip") : "" }
+        .counter
+          =format_number(question.answers_count)
+        .text
+          =t(:answers, :scope => "activerecord.attributes.question")
+      .clear
       .group-voting
         %ul
           %li.agree="&#x279A; Agree"
